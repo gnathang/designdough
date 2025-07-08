@@ -1,0 +1,257 @@
+.back_to_all_wrap_fixed {
+    position: fixed;
+    top: 210px;
+    align-items: center;
+    gap: 15px;
+    z-index: 0;
+    opacity: 0;
+    display: none;
+    @include respond-to('lg') {
+        display: flex;
+    }
+    img {
+        max-width: 24px;
+    }
+    p {
+        color: black;
+        margin-top: 4px;
+        @include respond-to('sm') {
+            margin-top: 0px;
+            margin-bottom: 2px;
+        }
+    }
+    &.hide {
+        opacity: 0;
+        @include shorttransition;
+    }
+}
+
+.single_page_header {
+    padding-top: 200px;
+    h2 {
+        text-transform: none;
+    }
+    .title_bar {
+        @include title_bar;
+        border-color: $white;
+        
+    }
+    .title_box {
+        .title_wrap {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 0.5fr 1fr;
+            @include respond-to('lg') {
+                grid-template-columns: 1fr;
+                margin-bottom: 20px;
+            }
+            h1 {
+                font-size: 50px;
+                line-height: 0.8;
+                grid-column: 1 /span 2;
+                letter-spacing: -4px;
+                @include respond-to('lg') {
+                    font-size: 70px;
+                    letter-spacing: -3px;
+                }
+                span {
+                    letter-spacing: -3px;
+                    padding-top: 6px;
+                    padding-bottom: 8px;
+                }
+            }
+            .back_to_all_wrap {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                z-index: 1;
+                order: -1;
+                img {
+                    max-width: 24px;
+                }
+                p {
+                    color: black;
+                    margin-top: 4px;
+                    @include respond-to('sm') {
+                        margin-top: 0px;
+                        margin-bottom: 2px;
+                    }
+                }
+                @include respond-to('lg') {
+                    display: none;
+                }
+            }
+            
+            .author_wrap {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: end;
+                order: -1;
+                p {
+                    text-transform: uppercase;
+                }
+                .user_avatar_wrap img {
+                    border-radius: 50%;
+                    max-width: 40px;
+                }
+                @include respond-to('lg') {
+                    grid-column: 1;
+                    order: unset;
+                    justify-content: start;
+                }
+            }
+        }
+    }
+}
+.image_container {
+    .featured_image_wrap {
+        background-size: cover;
+        background-position: center;
+        min-height: 340px;
+        @include respond-to('lg') {
+            min-height: 540px;
+            width: 100%;
+        }
+        @include border_radius_small;
+    }
+}
+
+.simple_post {
+    @include sections_padding;
+    z-index: -1;
+    .post_content_wrap {
+        width: 100%;
+        // the blogs have been pulled from the old site,
+        // so we are overwriting the default type styles.
+        h1, h2, h3, h4, h5, p, ol, ul {
+            margin-bottom: 20px;
+            line-height: normal;
+            text-transform: none;
+        }
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            right: -7px;
+        }
+        h1 {
+            font-size: 60px;
+            letter-spacing: -3px;
+        }
+        h2 {
+            font-size: 50px;
+            letter-spacing: -3px;
+        }
+        h3 {
+            font-size: 36px;
+            letter-spacing: -3px;
+        }
+        p, li {
+            font-size: 12px;
+            font-weight: 200;
+            line-height: normal !important;
+            letter-spacing: normal;
+            @include respond-to('lg') {
+                font-size: 20px;
+            }
+        }
+        a {
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .wp-caption {
+            width: auto
+        }
+        img {
+            @include respond-to('md') {
+                max-width: 40%;
+            }
+        } 
+    }
+}
+
+.other_posts {
+    @include sections_padding;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    .title_bar {
+        @include title_bar
+    }
+    .title_wrap {
+        @include title_box
+    }
+    padding-bottom: 60px;
+    // styles for rows
+    .post_rows {
+        @include post_rows;
+    }
+
+    // styles for grid
+    .post_grid {
+        @include post_grid;
+        // @include post_slider;
+        &.three_columns, &.four_columns {
+            @include respond-to('md') {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .grid_cell {
+                // overwriting default grid styles
+                .perma_wrap {
+                    .slideshow {
+                        .overlay_image_wrapper {
+                            @include shorttransition;
+                            background-size: 100%;
+                            &:hover {
+                                opacity: 1 !important;
+                                background-size: 150%;
+                                @include shorttransition;
+                            }
+                        }
+                    }
+                }
+    
+                .text_wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    height: 25%;
+                    h3 {
+                        font-size: 20px;
+                        @include respond-to('md') {
+                            @include h-four;
+                        }
+                    }
+                    @include respond-to('lg') {
+                        // padding: 0;
+                        gap: 6px;
+                        justify-content: start;
+                        // height: 30%;
+                    }
+                    .meta_wrapper {
+                        display: flex;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+        &.three_columns {
+            @include respond-to('lg') {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        &.four_columns {
+            @include respond-to('lg') {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 20px;
+            }
+        }
+    }
+
+    // styles for editorial layout
+    .posts_editorial {
+        @include posts_editorial;
+    }
+}

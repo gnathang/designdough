@@ -1,0 +1,78 @@
+.section_accordion {
+    @include sections_padding;
+    .accord_container {
+        &.grid {
+            .accord_wrap {
+                display: grid;
+                grid-template-columns: 1fr 0.3fr;
+                @include respond-to('lg') {
+                    grid-template-columns: 0.6fr 1fr 0.1fr;
+                    padding: 20px 0px;
+                }
+            }
+        }
+        &.standard {
+
+        }
+        .accord_wrap {
+            @include transition;
+            width: 100%;
+            border-top: solid 1px $grey;
+            &:last-child {
+                border-bottom: solid 1px $grey;
+            }
+            .accord_head {
+                position: relative;
+                padding: 15px 0px 1px 20px;
+                @include shorttransition;
+                // cursor: pointer;
+            }
+            .accord_body {
+                height: auto;
+                max-height: 1px;
+                overflow: hidden;
+                opacity: 0;
+                padding-left: 20px;
+                @include transition;
+                @include respond-to('md') {
+                    padding: 8px 0px 1px 20px;
+                }
+            }
+            .accord_image_wrap {
+                justify-self: end;
+                padding-right: 16px;
+                @include respond-to('md') {
+                    order: 2;
+                }
+                .accordion_down_arrow {
+                    height: 30px;
+                    transform: rotateZ(-180deg);
+                    padding: 10px 0px;
+                    @include shorttransition;
+                    @include respond-to('md') {
+                        height: 44px;
+                        padding: unset;
+                    }
+                }
+            }
+            &:hover {
+                background-color: $offblack;
+                @include transition;
+            }
+            &.active {
+                @include transition;
+                .accord_body {
+                    max-height: 2000px;
+                    opacity: 1;
+                    padding: 15px 0px 15px 20px;
+                    @include respond-to('md') {
+                        padding-bottom: 0px 0px 40px 0px
+                    }
+                }
+                .accordion_down_arrow {
+                    transform: rotateZ(0deg);
+                }
+            }
+        }
+    }
+}

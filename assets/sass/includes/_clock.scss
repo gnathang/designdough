@@ -1,0 +1,48 @@
+
+#clock, #location {
+    color: $white;
+}
+#clock {
+    width: 54px;
+}
+
+.analogue_clock {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border: solid 1px $white;
+    // transform: rotate(180deg);
+    font-size: 11px;
+    @include respond-to('md') {
+        font-size: 12px;
+    }
+    .circle {
+        position: absolute;
+        inset: 0;
+        --rotation: 0;
+	    -webkit-font-smoothing: antialiased;
+        i {
+            -webkit-font-smoothing: antialiased;
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 50%;
+            background-color: $white;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+        }
+    }
+    #hr_hand {
+        transform: scaleY(0.4);
+    }
+    #mn_hand {
+        transform: scaleY(0.8);
+    }
+    #sc_hand {
+        transform: scaleY(0.9);
+        // hide the second hand
+        opacity: 0;
+    }
+
+}

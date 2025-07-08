@@ -1,0 +1,193 @@
+.section_images {
+    // todo: kick this out?
+    &.transparent_plus_padding {
+        background-color: transparent;
+        padding-bottom: 120px;
+        @include respond-to('lg') {
+            padding-bottom: 200px;
+        }
+    }
+    &.pad_standard {
+        @include sections_padding;
+    }
+    &.pad_large {
+        @include sections_padding_large;
+    }
+    &.pad_small {
+        padding-bottom: 1.5625vw;
+    }
+    &.remove_top_padding {
+        padding-top: 0px;
+    }
+    &.bg_black {
+        background-color: $offblack;
+    }
+    &.bg_white {
+        background-color: $white;
+        .images_editorial_grid {
+            padding: 50px;
+        }
+        @include respond-to('lg') {
+            .images_editorial_grid {
+                padding: 180px
+            }
+        }
+    }
+    // editorial
+    .images_editorial_grid {
+        display: grid;
+        &.inset {
+            @include respond-to('md') {
+                padding: 100px;
+            }
+            @include respond-to('lg') {
+                padding: 200px;
+            }
+        }
+        img {
+            object-fit: cover;
+            @include border_radius_small;
+        }
+        video {
+            width: 100%;
+            display: block;
+        }
+        &.remove_border_radius {
+            img {
+                @include border_radius_none;
+            }
+        }
+        &.big_image{
+            grid-template-columns: 1fr;
+        }
+        &.editorial {
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: $conpad;
+            // todo: write styling pattern in mixins
+            .row-1 {
+                grid-column: 1 / span 6;
+                grid-row: 1 / span 3;
+                @include respond-to('lg') {
+                    grid-column: 2 / span 4;
+                    grid-row: 1 / span 2;
+                }
+
+            }
+            .row-2 {
+                grid-column: 7 / span 6;
+                grid-row: 2 / span 4;
+                @include respond-to('lg') {
+                    grid-column: 8 / span 4;
+                    grid-row: 1 / span 3;
+                }
+            }
+            .row-3 {
+                grid-column: 1 / span 6;
+                grid-row: 4 / span 6;
+                @include respond-to('lg') {
+                    grid-column: 3 / span 4;
+                    grid-row: 4 / span 2;
+                }
+            }
+        }
+        &.two_images {
+            grid-template-rows: repeat(2, 1fr);
+            .row-2 {
+                grid-column: 7 / span 5;
+                grid-row: 1 / span 3;
+            }
+            .row-1 {
+                grid-column: 2 / span 3;
+                grid-row: 1 / span 1;
+            }
+        }   
+    }
+    .images_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $conpad;
+        img {
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            @include border_radius_small;
+        }
+        &.og_dimensions {
+            img {
+                aspect-ratio: unset;
+            }
+        }
+        &.remove_border_radius {
+            img {
+                @include border_radius_none;
+            }
+        }
+        video {
+            object-fit: cover;
+            display: block;
+            @include respond-to('sm') {
+                aspect-ratio: 1 / 1;
+            }
+            @include respond-to('lg') {
+                height: 100%;
+            }
+        }
+    }
+    // wheels
+    .wheels_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        @include respond-to('lg') {
+            grid-template-columns: 0.5fr 1fr 1.4fr 1fr;
+        }
+        @include respond-to('sm') {
+            .wheel_wrap {
+                img {
+                    max-width: 150px;
+                }
+            }
+        }
+    }
+    // slider
+    .splide {
+        .splide__track {
+            .splide__list {
+                margin: 0 -10%;
+                .splide__slide {
+                    position: relative;
+                    .slide_image {
+                        object-fit: cover;
+                        @include border_radius_small;
+                        @include respond-to('lg') {
+                            min-height: 450px;
+                        }
+                        &.og_dimensions {
+                            height: auto;
+                        }
+                    }
+                    &.remove_border_radius {
+                        .slide_image {
+                            @include border_radius_none;
+                        }
+                    }
+                    .text_wrapper {
+                        .client_logo {
+                            position: absolute;
+                            max-height: 100px;
+                            max-width: 200px;
+                            left: 20px;
+                            top: 20px;
+                        }
+                        .title {
+                            position: absolute;
+                            bottom: 20px;
+                            left: 20px;
+                            font-weight: 200;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

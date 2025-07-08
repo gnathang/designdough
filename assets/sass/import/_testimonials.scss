@@ -1,0 +1,156 @@
+.section_testimonials {
+    overflow: hidden;
+    @include sections_padding_large;
+    // default slider styles
+    // todo mixin just for slider
+    .title_wrap {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .splide {
+        .splide__arrows {
+            .splide__arrow {
+                height: 50vh;
+                width: 50%;
+                border-radius: 0;
+                background-color: transparent;
+                cursor: none;
+            }
+        }
+        .splide__track {
+            margin-right: -10%;
+            margin-left: -10%;
+            .splide__slide {
+                @include transition;
+                position: relative;
+                @include border_radius_small;
+                border: solid 1px $grey;
+                padding: 16px;
+                height: fit-content;
+                
+                .slide_image_wrap {
+                    padding: 20px;
+                    position: relative;
+                    height: 100%;
+                    img {
+                        object-fit: cover;
+                    }
+                }
+                
+                .slide_box{
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    .location{
+                        position: absolute;
+                        @include respond-to(sm){
+                            bottom: -50px;
+                            width: 100%;
+                            text-align: center;
+                        }                
+                        @include respond-to(md){
+                            left: -80px;
+                            top: 15vh;
+                
+                        }
+                    }
+
+                    .quotation_bg_wrap {
+                        display: grid;
+                        height: inherit;
+                        color: $white;
+                        .logo {
+                            width: 140px;
+                            margin-bottom: 10px;
+                            height: 60px;
+                        }
+                        .quote {
+                            font-weight: 400;
+                            color: $white;
+                        }
+                        .quoter_wrap {
+                            margin-top: 20px;
+                            align-self: self-end;
+                        }
+                        .quotation_marks {
+                            width: 80px;
+                            @include respond-to(md){
+                                width: 120px;
+                            }
+                            padding-bottom: 40px;
+                        }
+                        a {
+                            z-index: 99 !important;
+                        }
+                    }
+                }
+            }
+        }
+        .splide__pagination {
+            bottom: -2.5em;
+            .splide__pagination__page.is-active {
+                background: $magenta;
+            }
+        }
+    }
+
+    .quotation_grid {
+        @include border_radius;
+        .quotation_grid_wrap {
+            height: auto;
+            display: grid !important;
+            grid-template-columns: 1.5fr 1fr;
+            .quote_title {
+               
+            }
+            .quote_wrap {
+                img {
+                    max-height: 50px;
+                    width: 120px;
+                    padding-bottom: 20px;
+                }
+                .quote {
+                    font-family: $primary-font;
+                    font-weight: 200;
+                }
+                .logo_and_quoter_wrap {
+                    padding-top: 30px;
+                    display: flex;
+                    gap: 30px;
+                    .quoter_logo {
+                        img {
+                            width: 100px;
+                        }
+                    }
+                    .quoter_wrap {
+                        .bolden {
+                            font-style: bold;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 0px;
+}
+
+
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  #right-arrow, #left-arrow {
+    position: absolute;
+    width: 30px; /* Adjust the width and height as needed */
+    height: 30px;
+    cursor: none;
+  }

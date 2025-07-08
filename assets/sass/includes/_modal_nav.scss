@@ -1,0 +1,188 @@
+.modal_nav {
+    // don't put padding attributes on this outer div.
+    // otherwise it will mess the height up
+    // todo: why? -> transform properties and position: fixed?
+    &.active {
+        .modal_nav_wrap {
+            transform: translateX(0);
+            @include longtransition;
+        }
+    }
+    .modal_nav_wrap {
+        background-color: $magenta;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        transform: translateX(101%);
+        @include longtransition;
+        @include respond-to('md') {
+            grid-template-columns: 1fr 1fr;
+            padding:  unset;
+        }
+        @include respond-to('lg') {
+            width: 60%;
+        }
+        .modal_nav_menu, 
+        .modal_nav_contact {
+            @include respond-to('md') {
+                top: 22%;
+                height: 54%;
+                position: relative;
+                max-height: 460px;
+            }
+            .give_us_a_call {
+                @include h-four;
+                font-weight: 200;
+            }
+            .btn_simple {
+                @include h-four;
+            }
+        }
+        .modal_nav_menu {
+            @include remove_margins;
+            @include respond-to('sm') {
+                @include smallcontainer;
+                gap: 6px;
+                padding-top: 100px;
+            }
+            @include respond-to('md') {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-end;
+                left: 50px;
+            }
+            .li_level_one {
+                flex-basis: 100%;
+                width: 100%;
+                list-style-type: none;
+                display: block;
+                position: relative;
+                overflow: hidden;
+                @include remove_margins;
+                @include transition;
+                // rename these to submenus -> then categorise by dropdown
+                // @include dropdown_full_width;
+                // @include dropdown_rel_top_level;
+                // @include submenu_modal;
+                // @include arm_dark_mode(null, $grey, null);
+                p {
+                    &:after {
+                        content: '-';
+                        margin-left: 5px;
+                        // cursor: pointer;
+                        @include transition;
+                        position: absolute;
+                        right: -15px;
+                        opacity: 0;
+                    }
+                    &:before {
+                        content: '+';
+                        margin-left: 5px;
+                        // cursor: pointer;
+                        @include transition;
+                        position: absolute;
+                        right: -15px;
+                        opacity: 1;
+                    }
+                    &.active {
+                        &:after {
+                            opacity: 1;
+                            @include transition;
+                        }
+                    }
+                    &.active {
+                        &:before {
+                            opacity: 0;
+                            @include transition;    
+                        }
+                    }
+                }
+                a {
+                    color: white;
+                    font-size: 32px;
+                    line-height: 1.2;
+                    letter-spacing: -1px;
+                    font-weight: 500;
+                    @include respond-to('md') {
+                        font-size: 38px;
+                    }
+                }
+
+                &:hover{
+                    
+                }
+                .dropdown_area_modal {
+                    margin-left: 20px;
+                    margin-bottom: 20px;
+                    @include transition;
+                    display: none;
+                    &.active {
+                        display: block;
+                        @include transition;
+                    }
+                    .dropdown_wrap {
+                        .dropdown_list {
+                            display: grid;
+                        }
+                    }
+                }
+            }
+        }
+        .modal_nav_contact {
+            @include respond-to('sm') {
+                @include smallcontainer;
+            }
+            padding-left: 0;
+            padding-right: 0;
+            border-left: none;
+            border-top: 1px solid $white;
+
+            @include respond-to('md') {
+                padding-left: 20px;
+                padding-right: 170px;
+                border-top: none;
+                border-left: 1px solid $white;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .contact_top {
+                .cta {
+                    font-weight: 200;
+                }
+                @include respond-to('sm') {
+                    padding: 20px 0;
+                    h3 {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .contact_bottom {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                @include respond-to('md') {
+                    max-width: 240px;
+                }
+                .socials_wrap {
+                    display: flex;
+                    gap: 10px;
+                    img {
+                        width: 30px;
+                    }
+                }
+                .contact_details_wrap {
+                    display: none;
+                    @include respond-to('md') {
+                        display: flex;
+                        flex-wrap: wrap;
+                        row-gap: 12px;
+                    }
+                }
+            }
+        }   
+    }
+}

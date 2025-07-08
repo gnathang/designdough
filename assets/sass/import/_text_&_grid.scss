@@ -1,0 +1,228 @@
+.section_text_and_grid {
+    @include sections_padding;
+    // extra padding
+    @include respond-to('lg') {
+        padding-bottom: 280px;
+
+    }
+    &.grey {
+        background-color: $grey;
+    }
+    .title_bar {
+        @include title_bar;
+    }
+    .title_box {
+        @include title_box;
+    }
+
+    .grid {
+        padding-top: 50px;
+        @media (min-width:600px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+        &.hide_on_modal {
+            height: 100vh;
+        }
+        &.two_col {
+            @include respond-to('lg') {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                row-gap: 50px;
+                column-gap: 50px;
+            }
+        }
+        &.three_col {
+            @include respond-to('lg') {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                row-gap: 50px;
+                column-gap: 50px;
+            }
+        }
+        &.four_col {
+            @include respond-to('lg') {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        &.five_col {
+            @include respond-to('lg') {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        &.center_content {
+            .grid_cell {
+                text-align: center !important;
+            }
+        }
+        .grid_cell {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: space-between;
+            text-align: center;
+            margin-bottom: 70px;
+            @include transition;
+            a {
+                position: relative;
+                @include h_four;
+                @include respond-to('sm') {
+                    margin: 0;
+                    img {
+                        height: 16px;
+                    }
+                }
+                span {
+                    display: flex;
+                    align-items: start;
+                    img {
+                        position: relative;
+                        top: 0px;
+                        left: 0px;
+                        
+                    }
+                }
+                &:before {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                }
+                &:after {
+                    display: none;
+                }
+                &:hover {
+                    &:before {
+                        transform: translateX(150%);
+                        @include shorttransition;
+                    }
+                    &:after {
+                        // transform: translateX(200%);
+                        width: 100%;
+                        @include shorttransition;
+                    }
+                    span {
+                        transform: translateX(58px);
+                        @include shorttransition;
+                        img {
+                            transform: translateX(155%);
+                            @include shorttransition;
+                        }
+                    }
+                }
+            }
+            p {
+                text-align: left;
+                font-weight: 600px;
+            }
+            &:hover {
+                a {
+                    &:before {
+                        transform: translateX(0%);
+                        @include shorttransition;
+                    }
+                    &:after {
+                        // transform: translateX(200%);
+                        width: 100%;
+                        @include shorttransition;
+                    }
+                    span {
+                        transform: translateX(58px);
+                        @include shorttransition;
+                        img {
+                            transform: translateX(155%);
+                            @include shorttransition;
+                        }
+                    }
+                }
+            }
+            @include respond-to('md') {
+                text-align: left;
+                align-items: start;
+                margin-bottom: 0;
+                h5 {
+                    margin-bottom: unset;
+                }
+            }
+            img {
+                max-height: 180px;
+                @include respond-to('md') {
+                    width: auto;
+                }
+            }
+            &.button_at_bottom {
+                display: grid;
+            }
+
+            .open_grid_modal,
+            .download_buton {
+                width: fit-content;
+                @include respond-to(sm) {
+                    justify-self: center;
+                }
+                // cursor: pointer;
+            }
+        }
+        .grid_modal {
+            @include transition;
+            &.bg_yellow {
+                // background-color: $palestyellow;
+            }
+            &.bg_slateblue {
+                // background-color: $slateblue;
+            }
+            background-color: grey;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            visibility: hidden;
+            opacity: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: scroll;
+            @include respond-to(sm) {
+                padding-top: 80px;
+            }
+            padding-top: 110px;
+            @include respond-to('lg') {
+                padding-top: 150px;
+            }
+            &.active {
+                z-index: 99;
+                visibility: visible;
+                opacity: 1;
+                @include transition;
+            }
+            .container{
+                padding: 20px 0 120px;
+            }
+            .modal_close {
+                position: fixed;
+                top: 90px; 
+                right: 20px; 
+                width: 40px;
+                height: 40px;
+                &:hover {
+                    @include transition;
+                    filter: opacity(0.5);
+                }
+                // cursor: pointer;
+            }
+            p {
+                font-size: 12px;
+                margin-top: 40px;
+                @include respond-to('lg') {
+                    font-size: 18px;
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+}
+
+
+
+

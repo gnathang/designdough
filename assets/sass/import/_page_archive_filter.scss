@@ -1,0 +1,105 @@
+.page_archive_filter{
+    margin-bottom: 0px;
+    z-index: 1;
+    @include border_radius_bottom;
+    .posts_layout_wrapper {
+        min-height: 400px;
+        @include respond-to('md') {
+            min-height: 600px;
+        }
+        &.post_grid {
+            // this is the archive page, not the aggregator, so let's call the grid class
+            @include post_grid;
+            @include container;
+            .post_row {
+                display: none;
+            }
+        }
+        &.four_columns {
+            padding-bottom: 60px;
+            @include respond-to('md') {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            @include respond-to('lg') {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 20px;
+            }
+            .grid_cell {
+                .perma_wrap {
+                    .slideshow {
+                        .overlay_image_wrapper {
+                            background-size: 100%;
+                            // background-position: top;
+                            @include shorttransition;
+                            &:hover {
+                                @include shorttransition;
+                                opacity: 0.8;
+                                background-size: 120%;
+                            }
+                        }
+                    }
+                }
+
+                .text_wrapper {
+                    padding-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    // height: 25%;
+                    h3 {
+                        font-size: 20px;
+                        @include respond-to('md') {
+                            @include h-four;
+                        }
+                    }
+                    @include respond-to('lg') {
+                        gap: 6px;
+                        justify-content: space-between;
+                        // height: 30%;
+                    }
+                    .meta_wrapper {
+                        display: flex;
+                        gap: 10px;
+                    }
+                }           
+            }
+        }
+        
+        &.post_rows {
+            // this is the archive page, not the aggregator, so let's call the row class
+            @include post_rows;
+            .grid_cell {
+                display: none;
+            }
+        }
+        
+        .no_posts_to_show {
+            height: 100vh;
+            @include sections_padding;
+            grid-column: 1 / span 2;
+        }
+    }
+    .pagination_bar {
+        @include sections_padding;
+        text-align: center;
+        padding: 60px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        a {
+            @include h-three;
+            &:hover {
+                filter: opacity(0.5);
+            }
+        }
+        .page_nubmers {
+            &.current {
+                color: $magenta;
+            }
+        }
+    }
+    // &.black_bg {
+    //     background-color: $offblack;
+    // }
+}

@@ -1,0 +1,234 @@
+.section_form {
+
+
+
+
+
+    @include sections_padding;
+    .title_bar {
+        @include title_bar;
+    }
+    .title_box {
+        @include title_box;
+    }
+    .form_container {
+        // styles common to all forms
+        .text_wrap {
+            padding-bottom: 50px;
+            width: 80%;
+        }
+
+        &.right {
+            justify-content: end;
+            .form_grid {
+                width: 60%;
+            }
+        }
+        &.left {
+            justify-content: start;
+            .form_grid {
+                width: 60%;
+            }
+        }
+        &.two_cols {
+            .form_grid {
+                .text_wrap {
+                    width: 100%;
+                }
+                width: 100%;
+            }
+        }
+
+        //
+        // common form element styles
+        //
+        .wpcf7-form {
+            .title_bar {
+                @include title_bar;
+                p {
+                    color: $white;
+                }
+            }
+            .title_box {
+                @include title_bar;
+            }
+
+            input[type="text"], input[type="tel"], input[type="url"], input[type="email"], textarea {
+                @include input_field_second;
+            }
+
+            input[type="submit"]{
+                @include buttondefault;
+                color: $white;
+                &:after {
+                    content: 'testing';
+                }
+            }
+        }
+
+
+        // we can use seperate styles for different forms.
+        // for the minimal signup form.
+        &.sign_up_min {
+            .text_wrap {
+                display: flex;
+                justify-content: end
+            }
+            .form_wrap {
+                .wpcf7-form {
+                    display: flex;
+                    align-items: center;
+                    input, textarea{
+                        @include input_field_second;
+                    }
+                    input[type="submit"]{
+                        @include buttonfourth;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        &.application {
+            .text_wrap {
+                display: flex;
+                justify-content: end
+            }
+            .form_wrap {
+                .wpcf7-form {
+                    .app_form_top {
+                        display: grid;
+                        margin-top: 30px;
+                        /* grid-template-columns: 1fr; */
+                        gap: 10px;
+                        padding-bottom: 40px;
+                        width: 100%;
+                        label {
+                            width: 99%;
+                            margin-top: 10px;
+                            display: block;
+                        }
+                        textarea {
+                            max-height: 125px;
+                            height: 125px;
+                        }
+                        @include respond-to('lg') {
+                            width: 66.6%;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 20px;
+                            padding-bottom: 120px;
+                            label {
+                                height: 74px;
+                                width: 90%;
+                                &:last-child {
+                                    grid-column: 2;
+                                }
+                            }
+                        }
+                    }
+                    // title styles for the second half of the form
+                    .title_bar {
+                        @include title_bar;
+                    }
+                    .title_box {
+                        @include title_box;
+                    }
+                    .app_form_bottom {
+                        display: grid;
+                        gap: 20px;
+                        padding-bottom: 10px;
+                        label {
+                            width: 100%;
+                        }
+                        @include respond-to('md') {
+                            grid-template-columns: 1fr 1fr 1fr;
+                            padding-bottom: 120px;
+                            label {
+                                width: 90%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.contact,
+        &.get_a_quote {
+            .form_grid {
+                &.with_image {
+                    width: 100%;
+                    display: grid;
+                    gap: 100px;
+                    .form_image_wrap img {
+                        @include border_radius_small;
+                    }
+                    @include respond-to('lg') {
+                        grid-template-columns: 0.6fr 0.4fr;
+
+                    }
+                }
+            }
+        }
+        &.contact {
+            form {
+                display: grid;
+                gap: 20px;
+                input[type="submit"] {
+                    width: fit-content;
+                }
+            }
+        }
+        &.get_a_quote {
+            .get_a_quote_form {
+                display: grid;
+                gap: 20px;
+                @include respond-to('md') {
+                    width: 100%;
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        }
+    }
+
+
+        // orange colour version
+
+        &.brandlabs_orange{
+            background-color: $brandlabs_orange;
+            color: white;
+
+            .title_bar_border{
+                border-color: white!important;
+
+            }
+
+            
+
+            .form_container {
+
+
+                    
+                .wpcf7-form {
+
+        
+                    input[type="text"], input[type="tel"], input[type="url"], input[type="email"], textarea {
+                        background-color: #ff7f61!important;
+                        background: #ff7f61!important;
+                        color: $offblack;
+                    }
+                    .title_bar_border{
+                        border-color: white!important;
+        
+                    }
+        
+
+                }
+        
+
+
+
+
+    
+
+             }
+        }
+}

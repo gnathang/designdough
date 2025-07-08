@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;300&display=swap');
+
+/* keyframe slideshow - define urls and duration*/
+
+/*
+
+body.login{
+	font-family: 'Public Sans', Helvetica, Arial, "sans-serif";
+    background-size: cover;
+    background-position: center center;
+    animation-name: fadebackground ;
+    animation-duration: 10s ;
+    animation-iteration-count: infinite;
+    }
+
+@keyframes fadebackground {
+    0% {background-image: url("https://designdough.co.uk/wp-content/uploads/2022/01/designdough-Astutis-Brand-and-web-design.jpg");}
+ 25% {background-image: url("https://designdough.co.uk/wp-content/uploads/2021/11/designdough-Kaktus-Brand-and-web-design-03.jpg");}
+  50% {background-image: url("https://designdough.co.uk/wp-content/uploads/2021/11/designdough-Kaktus-Brand-and-web-design-03.jpg");}
+    75% {background-image: url("https://designdough.co.uk/wp-content/uploads/2022/01/designdough-Astutis-Brand-and-web-design.jpg");}
+    100% {background-image: url("https://designdough.co.uk/wp-content/uploads/2022/01/designdough-Astutis-Brand-and-web-design.jpg");}
+}
+
+*/
+
+/* load random image from unsplash */
+
+
+
+body.login{
+	font-family: 'Public Sans', Helvetica, Arial, "sans-serif";
+    background-image: url('https://source.unsplash.com/random/1500x1000');
+    background-size: cover;
+    background-position: center center;
+    }
+
+	
+#login{
+	padding: 0px 70px 0px 70px;
+	background:#f6f6f6;
+    float:right;
+    height:100vh;
+}
+
+.language-switcher{
+    display:none;
+}
+
+.login h1 a {
+	background-image: url('/wp-content/themes/designdough/assets/login/designdoughlogo.png');
+	background-size: 320px;
+	width: 320px;
+	height: 70px;
+    margin-top: 120px;
+	}
+	
+.login form {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 30px;
+	border: 0px solid rgba(0, 0, 0, 0.2);
+	background-clip: padding-box;
+	background:  #ff365c;
+	overflow: hidden;
+	border-radius: 5px;
+	}
+	
+.login form .input, .login form input[type=checkbox], .login input[type=text] {
+	background-color: #ffffff;
+	font-weight: normal;
+    border: 0;
+    outline: 0;
+}
+
+.login label {
+	color: #fff;
+	line-height: 26px;
+	font-weight: bold;
+	}
+
+#loginform p a{
+	width: auto;
+	float:left;
+	padding: 5px 10px;
+	margin: 10px 0 20px 0;
+	text-decoration: none;
+	background-color: #3ab3e5!important;
+	box-shadow: 0 0 0 !important;
+	text-shadow: 0 0 0 !important;
+	color: #fff;
+	border-radius: 5px;
+	border: 2px solid #FFF;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+}
+
+#loginform p a:hover{
+	background-color:#00c0ff!important;
+	border-width:2px;
+	border-color:#fff;
+	border-style:solid;
+	color: #fff;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+}
+
+#loginform p a:after{
+	content:"";
+}
+
+#loginform p{
+	clear:both;
+}
+
+.login .button-primary {
+	width: auto;
+	float:left;
+	margin: 20px 0 0 0;
+    padding: 10px 20px;
+    border: 2px white solid;
+    border-radius: 25px;
+    background-color: transparent!important;
+	color: #fff;
+	box-shadow: 0 0 0 !important;
+	text-shadow: 0 0 0 !important;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+	}
+
+.login .button-primary:hover {
+	background-color:#fff!important;
+	border-width:2px;
+	border-color:#fff;
+	border-style:solid;
+	color: #e72d51;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+	}
+
+.login .button-primary:active {
+	background-color:#77CE1F!important;
+	border-width:2px;
+	border-color:#fff;
+	border-style:solid;
+	color: #fff;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+	}
+	
+.login .message {
+	border-left: 0px solid #333;
+	background-color: #ff365c;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	color: #FFF;
+	}
+	
+.login #login_error {
+	border-left: 0px solid #000;
+	background: #ea4f3d;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	color: #FFF;
+	}
+
+.login #login_error:before {
+	content:"Username or password is incorrect";
+}
+
+#login p#nav{
+	display: none;
+}
+
+#loginform p a{
+	display: none;
+}
+
+#login #backtoblog{
+	display: none;
+}
+
+#login a{
+    color:#3c434a;
+    text-decoration: underline;
+    -webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+}
+
+#login a:hover{
+    color:#ff365c;
+    text-decoration: underline;
+	-webkit-transition: All 0.5s ease;
+	-moz-transition: All 0.5s ease;
+	-o-transition: All 0.5s ease;
+	-ms-transition: All 0.5s ease;
+	transition: All 0.5s ease;
+}
+
+
+@media (max-width: 767px) {
+
+    #login{
+        float:none;
+        width: 90%;
+        padding: 0 5%;
+        position: absolute;
+        top:0;
+    }
+    
+}

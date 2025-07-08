@@ -1,0 +1,37 @@
+.post_layout_toggle {
+    .icons_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+        .toggle_icon_wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            p {
+                display: none;
+                // @include respond-to('xl') {
+                //     display: block;
+                //     // corrective
+                //     position: relative;
+                //     top: 2px;
+                // }
+            }
+            img {
+                filter: contrast(0) brightness(1.7);
+                max-width: 18px;
+                @include shorttransition;
+            }
+            &:hover, &.active {
+                p {
+                    color: $magenta;
+                    @include shorttransition;
+                }
+                img {
+                    filter: unset;
+                    @include shorttransition;
+                }
+            }
+        }
+    }
+}

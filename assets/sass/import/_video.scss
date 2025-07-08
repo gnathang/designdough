@@ -1,0 +1,169 @@
+.section_video {
+    // fix fixed header slit
+    background-color: $offblack;
+    @include border_radius_small;
+    margin-bottom: -1;
+    .video_wrapper {
+        // width: 100%;
+        // margin-left: 0%;
+        .bg_cover{
+            @include respond-to('sm'){
+                padding:0!important;
+            }
+        }
+        .vid_bg{
+            // @include bg_cover;
+        }
+        .wrapper{
+            position: relative;
+            &:after{
+                @include respond-to('sm') {
+                    content: "";
+                    height:50px;
+                    width:50px;
+                    position: absolute;
+                    left:45%;
+                    top:43%;
+                    z-index: 0;
+                    background-image: url(https://designdough.co.uk/wp-content/themes/designdough/assets/images/svg/cursor-play.svg);
+                    opacity: 0;
+                }
+            }
+            iframe{
+                height: auto;
+                @include respond-to('sm'){
+                    position:relative!important;
+                    aspect-ratio: 16 / 9;
+                }
+                @include border_radius_small;
+            }
+        }
+        &.active{
+            .wrapper{
+                &:after{
+                    @include respond-to('sm') {
+                        background-image: url();
+                    }
+                }
+            }
+        }
+        
+        .video_buttons{
+            .button {
+                height: 100%;
+                width: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                &#play-button {
+                    cursor: url(/wp-content/themes/designdough/assets/images/svg/cursor-play.svg) 15 15, url(https://designdough.co.uk/wp-content/themes/designdough/assets/images/svg/cursor-play.svg) 15 15, move;
+                }
+                &#pause-button {
+                    cursor: url(/wp-content/themes/designdough/assets/images/svg/cursor-pause.svg) 15 15, url(https://designdough.co.uk/wp-content/themes/designdough/assets/images/svg/cursor-pause.svg) 15 15, move;
+                }
+            }
+            &.autoplay{
+                .button{
+                    &#play-button {
+                        z-index: 100;
+                        opacity: 0;
+                    }
+                    &#pause-button {
+                        z-index: 101;
+                        opacity: 1;                    
+                    } 
+                }
+            }
+            &.clickplay{
+                .button{
+                    &#play-button {
+                        z-index: 101;
+                        opacity: 1;                    
+                    }
+                    &#pause-button {
+                        z-index: 100;
+                        opacity: 0;
+                    } 
+                }
+            }
+        }
+        .video_text_area{
+            position:relative;
+            width: 100%;
+            .video_text_area_bg{
+                @include slidebg;
+                h1,h2,h3,h4,h5,h6,p{
+                    color: $black;
+                }
+                a{
+                    @include buttonsecond;
+                }
+            }
+            &.clickplay{
+                .video_text_area_bg{
+                    margin: $px0;
+                }
+            }            
+            @include respond-to('md'){
+                position: absolute;
+                z-index: 200;
+                top:30%;
+                width:50%;
+                &.overleft{
+                    left:0;
+                }
+                &.overright{
+                    right:0;
+                }
+                &.overcenter{
+                    left:25%;
+                }
+                .video_text_area_bg{
+                    background-color: $white;
+                    padding: $px30;
+                }
+                &.clickplay{
+                    .video_text_area_bg{
+                        margin: $px50;
+                    }
+                }            
+            }
+        }
+    }
+
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-width: 850px) {
+        .video-container {
+            .wrapper{
+                position: relative;
+                &:after{
+                    @include respond-to('sm') {
+                        content: "";
+                        height:50px;
+                        width:50px;
+                        position: absolute;
+                        left:45%;
+                        top:43%;
+                        z-index: 0;
+                        background-image: url(https://designdough.co.uk/wp-content/themes/designdough/assets/images/svg/cursor-play.svg);
+                        opacity: 0;
+                    }
+                }
+            }
+            &.active{
+                .wrapper{
+                    &:after{
+                        @include respond-to('sm') {
+                            background-image: url();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .native_video {
+        @include border_radius_small;
+        width: 100vw;
+    }
+}

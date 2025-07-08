@@ -1,0 +1,2360 @@
+@import "colours";
+@import "../utilities/grid";
+
+
+@mixin shorttransition {
+    -webkit-transition: (.2s);
+    -moz-transition: (.2s);
+    -ms-transition: (.2s);
+    -o-transition: (.2s);
+    transition: (.2s);
+}
+
+@mixin transition {
+    -webkit-transition: (.4s);
+    -moz-transition: (.4s);
+    -ms-transition: (.4s);
+    -o-transition: (.4s);
+    transition: (.4s);
+}
+
+@mixin longtransition {
+    -webkit-transition: (0.8s);
+    -moz-transition: (0.8s);
+    -ms-transition: (0.8s);
+    -o-transition: (0.8s);
+    transition: (0.8s);
+}
+
+@mixin extralongtransition {
+    -webkit-transition: (2s);
+    -moz-transition: (2s);
+    -ms-transition: (2s);
+    -o-transition: (2s);
+    transition: (2s);
+}
+
+
+/* Percentage values */
+
+$v100: 100%;
+$v95: 95%;
+$v90: 90%;
+$v85: 85%;
+$v80: 80%;
+$v75: 75%;
+$v70: 70%;
+$v65: 65%;
+$v60: 60%;
+$v55: 55%;
+$v50: 50%;
+$v45: 45%;
+$v40: 40%;
+$v35: 35%;
+$v30: 30%;
+$v25: 25%;
+$v20: 20%;
+$v15: 15%;
+$v10: 10%;
+$v5: 5%;
+$v0: 0;
+$auto: auto;
+$zeroauto: 0 auto;
+
+/* Pixel values */
+
+$px0: 0;
+$px5: 5px;
+$px10: 10px;
+$px15: 15px;
+$px20: 20px;
+$px25: 25px;
+$px30: 30px;
+$px35: 35px;
+$px40: 40px;
+$px45: 45px;
+$px50: 50px;
+$px55: 55px;
+$px60: 60px;
+$px65: 65px;
+$px70: 70px;
+$px75: 75px;
+$px80: 80px;
+$px85: 85px;
+$px90: 90px;
+$px95: 95px;
+$px100: 100px;
+
+/* Grid based width */
+
+$onehalf: 48%;
+$onethird: 30.66%;
+$twothirds: 65.33%;
+$onefourth: 22%;
+$threefourths: 74%;
+$onefifth: 16.8%;
+$twofifths: 37.6%;
+$threefifths: 58.4%;
+$fourfifths: 82.67%;
+$onesixth: 13.33%;
+$fivesixths: 82.67%;
+$gridmargin:  0 4% 0 0;
+$last: 0 0 0 0;
+
+
+/* Container values */
+
+$calcwidth: calc(100% - 160px);
+$calcpad: $px0 $px80;
+$perwidth: $v90;
+$perpad: $px0 $v5;
+
+$bigcalcwidth: calc(100% - 200px);
+$bigcalcpad: $px0 $px100;
+$bigperwidth: $v80;
+$bigperpad: $px0 $v10;
+
+
+/* #Borders
+================================================== */
+
+@mixin border_radius {
+    border-radius: 50px;
+    // overflow: hidden;
+}
+
+@mixin border_radius_small {
+    border-radius: 10px;
+    // overflow: hidden;
+}
+.border_radius_small {
+    @include border_radius_small;
+}
+
+@mixin border_radius_top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+@mixin border_radius_bottom {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+// option to overwrite for portfolio inner pages.
+@mixin border_radius_none {
+    border-radius: 0px;
+}
+
+@mixin border_all {
+    border: 1px solid $black;
+    overflow: hidden;
+}
+
+
+/* # Global Styles
+================================================== */
+// cursor: url(./assets/images/svg/magenta-circle.svg), pointer;
+
+// 
+// page transitions
+//
+// html.is-changing .transition-main {
+//     transition: transform 400ms ease-in-out;
+// }
+
+// html.is-animating.is-leaving .transition-main {
+// transform: translateY(calc(1 * 5vh * var(--overlay-direction, 1)));
+// }
+
+// html.is-animating.is-rendering .transition-main {
+// transform: translateY(calc(-1 * 5vh * var(--overlay-direction, 1)));
+// }
+
+.transition-swipe {
+    position: fixed;
+    top: 0px;
+    left: -84vw;
+    width: 270vw;
+    height: 200vh;
+    @include respond-to('md') {
+        left: -23vw;
+        width: 150vw;
+    }
+    // background-color: $magenta;
+    background: linear-gradient(to bottom, transparent, transparent 10%, #FC004C 10%, #FC004C 90%, transparent 90%, transparent), radial-gradient(0% 50% at top right, transparent 99%, #FC004C);
+    opacity: 1;
+    border-radius: 50%;
+    transform: translateY(-15%);
+    pointer-events: none;
+    z-index: 99;
+    @include longtransition;
+    &.on_load {
+        z-index: 99;
+        transform: translateY(-100%);
+        background: linear-gradient(to bottom, transparent, transparent 10%, #FC004C 10%, #FC004C 90%, transparent 90%, transparent), radial-gradient(0% 50% at top right, transparent 99%, #FC004C);
+        // @include longtransition;
+    }
+    &.reset {
+
+        transform: translateY(100%);
+    }
+    &.hide {
+        background: transparent;
+    }
+}
+
+html.is-changing .transition-swipe {
+    @include longtransition;
+    z-index: 99;
+    opacity: 1;
+    background: linear-gradient(to bottom, transparent, transparent 10%, #FC004C 10%, #FC004C 90%, transparent 90%, transparent), radial-gradient(0% 50% at top right, transparent 99%, #FC004C);
+
+}
+
+html.is-animating .transition-swipe {
+    transform: translateY(-15%);
+    @include longtransition;
+    background: linear-gradient(to bottom, transparent, transparent 10%, #FC004C 10%, #FC004C 90%, transparent 90%, transparent), radial-gradient(0% 50% at top right, transparent 99%, #FC004C);
+}
+
+html.is-rendering {
+    background-color: $black;
+    .transition-swipe {
+        transform: translateY(-15%);
+        // @include longtransition;
+        background: linear-gradient(to bottom, transparent, transparent 10%, #FC004C 10%, #FC004C 90%, transparent 90%, transparent), radial-gradient(0% 50% at top right, transparent 99%, #FC004C);
+    }
+}
+
+
+// html.is-changing .transition-fade {
+//     opacity: 1;
+//     @include transition;
+// }
+// /* Define the styles for the unloaded pages */
+// html.is-animating .transition-fade {
+//     opacity: 0;
+//     @include transition;
+// }
+
+// .transition-swipe {
+//     opacity: 1;
+//     @include transition;
+// }
+
+// .transition-swipe {
+//     @include longtransition;
+//     transform: scaleX(0);
+// }
+/* Define the styles for the unloaded pages */
+// html.is-animating .transition-swipe {
+//     transform: scaleX(1);
+//     @include transition;
+// }
+
+
+
+  
+// html.is-leaving .transition-swipe {
+//     opacity: 1;
+//     z-index: 99;
+//     transform: translateY(0%);
+//     @include transition;
+// }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.cursor {
+    @include respond-to('sm') {
+        display: none;
+    }
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    z-index: 9;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s, width 0.3s, height 0.3s, color 0.3s;
+    font-size: 18px;
+    pointer-events: none;
+    background-color: $magenta;
+    border: solid 1px $magenta;
+    color: $white;
+    border-radius: 50px;
+    z-index: 9;
+    text-align: center;
+    .view {
+        opacity: 0;
+        visibility: hidden; 
+        align-items: center;
+        top: 3px;
+        position: relative;
+    }
+    .slide_left, .slide_right {
+        opacity: 0;
+        visibility: hidden;
+        top: 3px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        text-align: unset;
+        gap: 5px;
+        img {
+            max-width: 20px;
+        }
+    }
+    .slide_left {
+        right: 13px;
+    }
+    &.hover_white {
+        background-color: $white;
+        border: solid 1px $white;
+        transition: background-color 0.3s, width 0.3s, height 0.3s, color 0.3s;
+    }
+    &.hover_anchor {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.536);
+        transition: background-color 0.3s, width 0.3s, height 0.3s, color 0.3s;
+        border: solid 1px $magenta;
+        filter: blur(1px);
+    }
+    &.hover_project {
+        width: 80px;
+        height: 28px;
+        border-radius: 50px;
+        transition: border-radius 0.1s, width 0.3s, height 0.3s, color 0.3s;
+        background-color: $magenta;
+        border: solid 1px $magenta;
+        .view {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s;
+            // @include transition;
+        }
+        filter: none;
+    }
+    &.hover_slide_left, &.hover_slide_right {
+        width: 90px;
+        height: 28px;
+        border-radius: 50px;
+        transition: border-radius 0.1s, width 0.3s, height 0.3s, color 0.3s;
+        background-color: $magenta;
+        border: solid 1px $magenta;
+    }
+    &.hover_slide_left {
+        .slide_left {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s;
+        }
+    }
+    &.hover_slide_right {
+        .slide_right {
+            right: 12px;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s;
+        }
+    }
+}
+
+body {
+    cursor: none;
+    opacity: 1;
+    @include transition;
+    &.remove_scroll {
+        overflow: hidden;
+    }
+    &.layout_toggle_transition {
+        opacity: 0;
+        @include transition;
+    }
+    background-color: $offblack;
+    color: $white;
+
+    // fixed header parameters
+    main {
+        position: relative;
+        // top: 90vh;
+        background-color: $offblack;
+        z-index: 2;
+        @include longtransition;
+        @include border_radius_bottom;
+        section {
+            // overflow-x: hidden; // to stop revealing the footer when overscrolling to the left or right 
+            background-color: $offblack;
+            position: relative;
+            // may need to put this back...
+            // z-index: 1;
+            @include longtransition;
+            &:last-child {
+                @include border_radius_bottom;
+            }
+            &.blur {
+                filter: blur(14px);
+                @include longtransition;
+            }
+        }
+        &.brandlabs{
+            section{
+                background-color: white;
+                color: $offblack;
+            }
+        }
+        // space for the footer to sit in        
+        &:after {
+            content: '';
+            display: block;
+            width: 1%;
+            background-color: transparent;
+            position: absolute;
+            top: 100%;
+            z-index: 0;
+            height: 700px;
+            @include respond-to('sm') {
+                height: 100vh;
+            }
+        }
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+        @include longtransition;
+        // overlap effect
+        &:before {
+            @include longtransition;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 300px;
+            background-color: $magenta;
+        }
+         // added when opening menu
+        &.blur {
+            background-color: $offblack;
+            filter: blur(14px);
+            @include longtransition;
+            &:before {
+                background-color: $offblack;
+                filter: blur(14px);
+                @include longtransition;
+            }
+        }
+        // added when at the top of the viewport
+        &.black {
+            @include longtransition;
+            background-color: $offblack;
+            color: transparent;
+            a {
+                color: transparent;
+            }
+            @include longtransition;
+            &:before {
+                background-color: $offblack;
+                @include longtransition;
+            }
+        }
+    }
+}
+
+@mixin sections_padding_small {
+    padding: calc($conpad * 2) 0;
+    &:nth-child(2) {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 80px;
+    }
+}
+
+
+@mixin sections_padding {
+    // $conpad_height: 1.5625vw;
+    padding-bottom: 50px;
+    padding-top: calc(50px - 1.5625vw);
+    @include respond-to('lg') {
+        padding-bottom: 80px;
+        padding-top: calc(80px - 1.5625vw);
+    }
+    &:nth-child(2) {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 80px;
+        @include respond-to('lg') {
+            padding-bottom: 160px;
+        }
+    }
+}
+
+@mixin sections_padding_large {
+    $conpad_height: 1.5625vw;
+    padding-bottom: 80px;
+    padding-top: calc(80px - 1.5625vw);
+    @include respond-to('lg') {
+        padding-bottom: 120px;
+        padding-top: calc(120px - 1.5625vw);
+    }
+    &:nth-child(2) {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 160px;
+    }
+}
+
+@mixin title_bar {
+    padding-bottom: 5px;
+    @include respond-to('md') {
+        padding-bottom: 12px;
+    }
+    .title_bar_border {
+        border-top: solid 1px $grey;
+        width: 0%;
+        height: 2px;
+        @include longtransition;
+        &.extended {
+            width: 100%;
+            @include longtransition;
+        }
+    }
+}
+@mixin title_box {
+    padding-bottom: 20px;
+    .title_wrap {
+        .small_title {
+            padding-bottom: 10px;
+        }
+        // styles without the glance box
+        .big_title {
+            padding-bottom: 20px;
+        }
+        @include respond-to('lg') {
+            // max-width: 64%;
+            padding-bottom: 10px;
+            max-width: 84%;
+            .small_title {
+                padding-bottom: 20px;
+            }
+        }
+        // styles with the glance box
+        &.title_box_grid {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 20px;
+            max-width: 100%;
+
+            @include respond-to('md') {
+                grid-template-columns: 1fr 0.5fr;
+                grid-template-rows: 0.1fr 1fr;
+                gap: 0px;
+                margin-bottom: 40px;
+            }
+
+            .title {
+                @include respond-to('sm') {
+                    grid-column: 1 / span 2;
+                }
+            }
+        }
+    }
+
+    .glance_box {
+        @include glance_box;
+    }
+}
+
+// tool: remove all margins (use for ul, li etc.)
+@mixin remove_margins {
+	margin: 0;
+}
+
+/* #Container
+================================================== */
+
+// splits the screen into 32 columns
+// $conpad : 3.125vw;
+// splits the screen into 64 columns
+$conpad : 1.5625vw;
+
+// @mixin bigcontainer {
+//     // todo: width method or padding method?
+//     // padding: calc(100vw - #{$conpad * 2});
+//     position: relative;
+//     margin: $zeroauto;
+//     max-width: 2000px;
+// }
+
+@mixin container {
+    width: calc(100vw - #{$conpad * 4});
+    @include respond-to('lg') {
+        width: calc(100vw - #{$conpad * 2});
+    }
+    position: relative;
+    margin: $zeroauto;
+    max-width: 2000px;
+}
+
+@mixin smallcontainer {
+    width: calc(100vw - #{$conpad * 4});
+    @include respond-to('lg') {
+        width: calc(100vw - #{$conpad * 24});
+    }
+    position: relative;
+    margin: $zeroauto;
+    max-width: 2000px;
+}
+
+.container {
+    @include container;
+}
+
+.container_small {
+    @include smallcontainer;
+}
+
+
+
+/* #Menus
+================================================== */
+
+/* Desktop dropdowns */
+
+@mixin dropdown_full_width {
+    .dropdown_full_width {
+        opacity: 0;
+        visibility: hidden;
+        // make an absolutely positioned version of this also!
+        position: fixed;
+        // todo: somehow make this dynamic so that it 'sticks' to header
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        .container{
+            .dropdown_wrap{
+                background-color: $offwhite;
+                border: 2px solid $offblack;
+                padding: 50px;
+                @include border_radius;
+                .top_level_button{
+                    width: auto;
+                    margin-bottom: 50px;
+                }
+                .dropdown_list{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 40px;
+                    justify-content: start;
+                    &.icons_nav{
+                        a {
+                            max-width: 350px;
+                            font-size: 32;
+                        }
+                        img{
+                            max-width: 80px;
+                            min-height: 90px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin dropdown_rel_top_level {
+    .dropdown_rel {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 22px;
+        left: 0;
+        width: 200px;
+        z-index: 10000;
+        padding-top: 10px;
+        .dropdown_wrap{
+            background-color: $offwhite;
+            border: 2px solid $offblack;
+            padding: 10px;
+            @include border_radius;
+            .dropdown_list{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: start;
+                a {
+                    max-width: 350px;
+                    font-size: 32;
+                    flex-basis: 100%;
+                }
+                &.icons_nav{
+                    img{
+                        max-width: 80px;
+                        min-height: 90px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Side/Modal Navs */
+
+
+// todo: add modal menu here!
+
+
+
+
+/* #Page Headers
+================================================== */
+
+// these are stored here because the same styles are used on multiple pages in hard code,
+// e.g. archive pages and single pages.
+
+@mixin page_header {
+    width: 100%;
+    height: 70vh;
+    position: sticky;
+    top: 0;
+    z-index: -1;
+    @include border_radius_bottom;
+    // may need to put this back
+    // z-index: 1;
+    @include transition;
+    @include respond-to('md') {
+        height: 90vh;
+    }
+    &.full_viewport_height {
+        height: 100vh;
+    }
+    &.blur {
+        filter: blur(14px);
+        @include transition;
+    }
+    &.index {
+        z-index: 0;
+    }
+    &.small_heading {
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 24px;
+        @include respond-to('md') {
+            height: 20vh;
+        }
+        @include respond-to('lg') {
+            height: unset;
+            padding-top: 200px;
+        }
+    }
+    &.remove_sticky {
+        position: relative;
+    }
+    &.brandlabs_green {
+        background-color: $brandlabs_green;
+    }
+    &.brandlabs_orange {
+        background-color: $brandlabs_orange;
+    }
+    .container {
+        // two_columns layout
+        &.two_columns {
+            @include sections_padding;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // the gap is a stand-in for padding.
+            gap: 100px;
+            .title_wrap {
+                padding: 100px 0;
+                width: 80%;
+            }
+            .image_wrap {
+                img {
+                    
+                }
+                img {
+                    
+                }
+            }
+        }
+        // background image layout
+        &.bg_image {
+            @include sections_padding;
+            .title_wrap {
+                padding: 100px 0;
+                height: 80vh;
+                width: 70vw;
+            }
+        }
+        // editorial layout
+        &.editorial {
+            .title_wrap {
+                &.blur {
+                    filter: blur(30px);
+                    @include transition;
+                }
+                text-transform: uppercase;
+                display: grid;
+                align-items: end;
+                position: relative;
+                height: 60vh;
+                grid-template-rows: 1.2fr 0.5fr;
+                .heading_logo_wrap {
+                    opacity: 0;
+                    &.reveal {
+                        opacity: 1;
+                        @include transition;
+                    }
+                }
+                .text_body {
+                    // margin-bottom: 100px;
+                    margin-right: 10%;
+                    margin-left: 1%;
+                    position: relative;
+                    font-weight: 500;
+                    @include respond-to('md') {
+                        margin-bottom: 24px;
+                        margin-right: unset;
+                        width: 90%;
+                    }
+                }
+                .arrow_down {
+                    display: none;
+                    @include respond-to('md') {
+                        height: auto;
+                        max-width: 20px;
+                        display: flex;
+                        justify-self: end;
+                        position: relative;
+                        position: absolute;
+                    }
+                    &.brandlabs_arrow {
+                        filter: invert(1);
+                    }
+                }
+                .brandlabs_live {
+                    text-transform: capitalize;
+                    color: $black;
+                    display: flex;
+                    gap: 5px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    img {
+                        max-width: 22px;
+                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+                        transform: scale(1);
+                        animation: pulse 2s infinite;
+                        border-radius: 50%;  
+                    }
+                    @keyframes pulse {
+                        0% {
+                            transform: scale(1);
+                            box-shadow: 0 0 0 0 green;
+                            opacity: 1;
+                        }
+        
+                        70% {
+                            transform: scale(0.7);
+                            box-shadow: 0 0 0 10px #fc004c21;
+                            opacity: 0.8;
+                        }
+        
+                        100% {
+                            transform: scale(1);
+                            box-shadow: 0 0 0 0 green;
+                            opacity: 0.2
+                        }
+                    }
+                }
+                // make the text wrap - animation applied
+                // h1 {
+                //     transform: translateY(8px);
+                // }
+                @include respond-to('md') {
+                    height: 85vh;
+                    padding-top: unset;
+                    grid-template-rows: 1fr;
+                    gap: 50px;
+                    .text_body {
+                        margin-bottom: 6px;
+                        position: relative;
+                        width: 38%;
+                    }
+                    h1 {
+                        max-width: 100%;
+                    }
+                    .arrow_down {
+                        margin-bottom: 0;
+                    }
+                }
+                @media (min-width: 1180px) {
+                    height: 85vh;
+                    grid-template-columns: 4fr 1.5fr 0.1fr;
+                    grid-template-rows: unset;
+                    gap: 100px;
+                    h1 {
+                        .word {
+                            position: relative; 
+                        }
+                    }
+                    .text_body {
+                        width: 100%;
+                    }
+                }
+                @include respond-to('xl') {
+                    gap: 60px;
+                    h1 {
+                        font-size: 220px;
+                    }
+                }
+                // override styles for home page
+                &.homepage_title_wrap {
+                    @media (min-width: 1180px) {
+                        grid-template-columns: 4fr 1.5fr 0.1fr;
+                    }
+                    @include respond-to('sm') {
+                        h1 {
+                            font-size: 5rem;
+                        }
+                        .arrow_down {
+                            display: none;
+                            // margin-bottom: 0;
+                            // max-width: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        // grid layout
+        &.grid {
+            color: white;
+            height: 100%;
+            .background-image-container{
+                
+
+             
+                        display: block;
+                        z-index: -1;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        background-image: url(./assets/images/png/blob.png);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 100%;
+                        width: 100%;
+                        
+                        background-position-x: -5%;
+                    
+        
+            }
+
+            .grid-outer-container{
+                height: 85%;
+                padding: 8vh 0 5vw 0;
+
+                .grid-inner-container{
+                    height: 100%;
+
+                    .col-one{
+                        display: none;
+                    }
+
+                    .col-two{
+
+                        column-gap: 3vw;
+
+                        .heading_logo_wrap{
+                            grid-area: 1 / 1 / span 1 / span 1;
+                            margin-bottom: 5rem;
+
+
+                        }
+
+                        .text_body{
+                            grid-area: 3 / 2 / span 1 / span 1;
+                            margin-bottom: 1em;
+
+                        }
+
+                        .text_body_large{
+                            grid-area: 7 / 1 / span 1 / span 2 ;
+                            text-transform: initial;
+
+                        }
+
+                        @include respond-to(md){
+
+                            grid-template-columns: repeat(2, 1fr);
+
+                        }
+
+
+                    }
+
+
+                    @include respond-to(md){
+
+                        display: flex;
+                        grid-template-columns: 1fr 2fr;
+                        gap: 8vw;
+
+                        .col-one, .col-two{
+
+                                display: grid;
+                                grid-template-rows: repeat(7, 1fr);
+
+                        }
+        
+                        .col-one{
+
+                                border-right: 1px solid white;
+                                padding-right: 3vw;
+                                width: 33%;
+            
+                                .small-text-one{
+                                    grid-row: 1;
+            
+                                }
+                                .small-text-two{
+                                    grid-row: 3;
+                                }
+                                .heading_logo_wrap.small{
+                                    grid-row: 7;
+                                    max-width: 100px;
+                                    height: auto;
+                                    align-content: flex-end;
+                            
+                                    img{
+                                        height: fit-content;
+                                    }
+                                }
+
+
+                        }
+
+
+                    }
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+            .title_wrap {
+                &.blur {
+                    filter: blur(30px);
+                    @include transition;
+                }
+                text-transform: uppercase;
+                display: grid;
+                align-items: end;
+                position: relative;
+                // height: 60vh;
+                // grid-template-rows: 1.2fr 0.5fr;
+                .heading_logo_wrap {
+                    opacity: 0;
+                    &.reveal {
+                        opacity: 1;
+                        @include transition;
+                    }
+                }
+                .text_body {
+                    // margin-bottom: 100px;
+                    // margin-right: 10%;
+                    // margin-left: 1%;
+                    // position: relative;
+                    // font-weight: 500;
+                    // @include respond-to('md') {
+                    //     margin-bottom: 24px;
+                    //     margin-right: unset;
+                    //     width: 90%;
+                    // }
+                }
+                .arrow_down {
+                    display: none;
+                    @include respond-to('md') {
+                        height: auto;
+                        max-width: 20px;
+                        display: flex;
+                        justify-self: end;
+                        position: relative;
+                        position: absolute;
+                    }
+                    &.brandlabs_arrow {
+                        filter: invert(1);
+                    }
+                }
+                .brandlabs_live {
+                    text-transform: capitalize;
+                    color: $black;
+                    display: flex;
+                    gap: 5px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    img {
+                        max-width: 22px;
+                        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+                        transform: scale(1);
+                        animation: pulse 2s infinite;
+                        border-radius: 50%;  
+                    }
+                    @keyframes pulse {
+                        0% {
+                            transform: scale(1);
+                            box-shadow: 0 0 0 0 green;
+                            opacity: 1;
+                        }
+        
+                        70% {
+                            transform: scale(0.7);
+                            box-shadow: 0 0 0 10px #fc004c21;
+                            opacity: 0.8;
+                        }
+        
+                        100% {
+                            transform: scale(1);
+                            box-shadow: 0 0 0 0 green;
+                            opacity: 0.2
+                        }
+                    }
+                }
+
+                // make the text wrap - animation applied
+                // h1 {
+                //     transform: translateY(8px);
+                // }
+                // @include respond-to('md') {
+                //     height: 85vh;
+                //     padding-top: unset;
+                //     grid-template-rows: 1fr;
+                //     gap: 50px;
+                //     .text_body {
+                //         margin-bottom: 6px;
+                //         position: relative;
+                //         width: 38%;
+                //     }
+                //     h1 {
+                //         max-width: 100%;
+                //     }
+                //     .arrow_down {
+                //         margin-bottom: 0;
+                //     }
+                // }
+                // @media (min-width: 1180px) {
+                //     height: 85vh;
+                //     // grid-template-columns: 4fr 1.5fr 0.1fr;
+                //     // grid-template-rows: unset;
+                //     // gap: 100px;
+                //     h1 {
+                //         .word {
+                //             position: relative; 
+                //         }
+                //     }
+                //     .text_body {
+                //         width: 100%;
+                //     }
+                // }
+                // @include respond-to('xl') {
+                //     gap: 60px;
+                //     h1 {
+                //         font-size: 220px;
+                //     }
+                // }
+
+            }
+        }
+        &.small_heading {
+            .title_bar {
+                @include title_bar;
+            }
+            .title_box {
+                @include title_box;
+            }
+        }
+    }
+}
+
+
+/* #Post Layouts
+================================================== */
+
+// standard post slider
+@mixin post_slider {
+    // todo: slider conditional? - turn into grid if not using slider
+    // todo: flex justification on slides
+    // todo: post grid patterns! a la CMC
+    .slick-track {
+        display: inline-flex;
+        gap: 20px;   
+    }
+    
+    // putting this outside slick-track means non-slider grids will be styled too
+    .grid_cell {
+        @include border_radius;
+        background-color: $offwhite;
+        border: solid 1px $black;
+        .image_wrapper {
+            // todo: make these into percentages
+            height: 200px;
+        }
+        .text_wrapper {
+            display: grid;
+            gap: 20px;
+            padding: 10px;
+            @include respond-to('lg') {
+                padding: 20px;
+            }
+            .text_title_wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+            }
+            img {
+                max-width: 15%;
+            }
+        }
+    }
+}
+
+// same as above, just not a slider (used more for archive pages)
+@mixin post_grid {
+    // todo: slider conditional? - turn into grid if not using slider
+    // todo: flex justification on slides
+    // todo: post grid patterns! a la CMC
+    @include container;
+    display: grid;
+    gap: $conpad;
+    @include respond-to('sm') {
+        row-gap: 40px;
+    }
+    @include respond-to('md') {
+        grid-template-columns: 1fr 1fr;
+        gap: $conpad;
+    }
+    .grid_cell {
+        @include transition;
+        @include border_radius_small;
+        position: relative;
+        &:hover {
+            @include transition;
+        }
+        .perma_wrap {
+            position: relative;
+            .slideshow {
+                aspect-ratio: 16 / 9;
+                position: relative;
+                width: 100%;
+                z-index: 1;
+                @include border_radius_small;
+                .portfolio_image_wrap {
+                    aspect-ratio: 16 / 9;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    opacity: 0;
+                    visibility: hidden;
+                    @include shorttransition;
+                    img {
+                        object-fit: cover;
+                        @include border_radius_small;
+                    }
+                    &.show {
+                        opacity: 1;
+                        visibility: visible;
+                        @include shorttransition;
+                    }
+                }
+                &:hover {
+                    @include transition;
+                }
+                // @include respond-to('sm') {
+                //     height: 70%;
+                // }
+                .overlay_image_wrapper {
+                    aspect-ratio: 16 / 9;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    opacity: 1;
+                    z-index: 99;
+                    background-position: center;
+                    background-size: cover;
+                    @include transition;
+                    @include border_radius_small;
+                    &:hover {
+                        opacity: 0;
+                        @include transition;
+                    }
+                }
+            }
+        }
+        .text_wrapper {
+            position: relative;
+            z-index: 1;
+            padding: 10px 10px 10px 0px;
+            @include respond-to('md') {
+                // padding: 10px 10px 10px 0px;
+                display: grid;
+                gap: 7px;
+            }
+            @include respond-to('lg') {
+                padding: 20px 20px 20px 0px;
+                gap: 10px;
+            }
+            .meta_wrapper {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+                @include respond-to('lg') {
+                    margin-top: 0px;
+                }
+            }
+        }
+        .arrow {
+            z-index: 1;
+            position: absolute;
+            bottom: 90px;
+            right: -40px;
+            width: 300px;
+            height: 100px;
+            display: none; 
+            @include respond-to('md') {
+                display: block;
+                height: 100px;
+            }   
+        }
+    }
+}
+
+// row layout.
+@mixin post_rows {
+    display: block;
+    // overflow-x: hidden;
+    .post_row {
+        display: block;
+        border-top: solid 1px $grey;
+        min-height: 122px;
+        .post_row_grid {
+            display: grid;
+            align-items: center;
+            padding: 20px 0;
+            gap: 20px;
+            @include respond-to('md') {
+                grid-template-columns: 1.2fr 0.5fr 1fr;
+            }
+            @include respond-to('lg') {
+                grid-template-columns: 6fr 2fr 7fr;
+            }
+            &.blog_page_row_grid {
+                @include respond-to('lg') {
+                    grid-template-columns: 7fr 3fr 0fr;
+                }
+            }
+            .title_col {
+                h3 {
+                    @include buttonanchor;
+                    font-weight: 500;
+                    @include transition;
+                    &:hover {
+                        transform: translateX(86px);
+                        pointer-events: none;
+                    }
+                    &:before {
+                        left: -90px;
+                    }
+                    // overwrite styles for the blog page rows
+                    &.blog_page_row {
+                        @include respond-to('sm') {
+                            font-size: 20px;
+                            letter-spacing: -1px;
+                            line-height: 1.4;
+                            &:before {
+                                left: -48px;
+                            }
+                            &:hover {
+                                transform: translateX(38px);
+                            }
+                        }
+                    }
+                }
+            }
+            .meta_col {
+                display: flex;
+                gap: 12px;
+                .jobs_meta_wrap {
+                    display: flex;
+                    gap: 40px;
+                    h6 {
+                        white-space: nowrap;
+                        border: none;
+                        padding: 0px;
+                    }
+                }
+            }
+            .link_col {
+                justify-self: end;
+            }
+            .images_wrap {
+                // hide on mobile screens
+                display: none;
+                @include respond-to('lg') {
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    gap: 20px;
+                    @include transition;
+                    .image_wrap {
+                        opacity: 0;
+                        img {
+                            height: 80px;
+                            width: 120px;
+                        }
+                    }
+                }
+            } 
+        }
+        // todo: animation delays on the images upon hover?
+        &:hover {
+            background-color: $darkgrey;
+
+            // Loop to apply animation delays to each .image_wrap
+            @for $i from 2 through 24 {
+                .image_wrap:nth-child(#{$i}) {
+                    @include fade_in_delay(0.1s * $i);
+                }
+            }
+
+            .image_wrap {
+                opacity: 0;
+                @include transition;
+                &.visible {
+                    opacity: 1;
+                    // @include transition;
+                }
+            }
+            .title_col {
+                h3 {
+                    transform: translateX(86px);
+                    @include transition;
+                }
+            }
+        }
+    }
+}
+
+@mixin posts_editorial {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 80px;
+    .post_wrapper {
+        .image_wrapper {
+            //  todo: make dynamic
+            aspect-ratio: 18 / 9;
+            margin-bottom: 40px;
+        }
+        grid-column: 1 / span 3;
+        &:nth-child(2) {
+            grid-column: 3 / span 2;
+        }
+        &:nth-child(2) {
+            grid-column: 2/ span 4;
+        }
+        .text_wrapper {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 40px;
+            @include transition;
+            .arrow {
+                position: relative;
+                right: 0;
+                max-width: 40px;
+                @include transition;
+            }
+        }
+        &:hover {
+            .image_wrapper img {
+                transform: scale(1.2);
+            }
+            .text_wrapper .arrow {
+                right: -20px;
+                @include transition;
+            }
+        }
+    }
+}
+
+@mixin category_label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    margin-left: 0px;
+    list-style-type: none;
+    cursor: none;
+    @include buttonfourth;
+    @include respond-to('sm') {
+        font-size: 8px;
+        padding: 0px 8px;
+        line-height: 2;
+    }
+    @include respond-to('md') {
+        font-size: 10px;
+    }
+    @include respond-to('xl') {
+        font-size: 12px;
+    }
+    &.active {
+        background-color: $magenta;
+    }
+    a {
+        white-space: nowrap;
+    }
+}
+
+
+/* #Fade Ins & Transitions
+================================================== */
+// I can't get this to work without the 'important' class!
+@mixin fade_in_delay($delay) {
+    transition-delay: $delay !important;
+}
+
+@for $i from 1 through 24 {
+    .fade-delay-#{$i} {
+        @include fade_in_delay(0.1s * $i);
+    }
+}
+
+@mixin fade_in_container {
+    .container {
+        opacity: 0;
+        transform: translate(0, 10vh);
+        @include transition;
+    }
+    &.visible {
+        .container{
+            opacity: 1;
+            transform: translate(0, 0);
+            @include transition;    
+        }
+    }
+}
+
+@mixin fade_in_element {
+    opacity: 0;
+    transform: translate(0, 10vh);
+    @include transition;
+    &.visible {
+        opacity: 1;
+        transform: translate(0, 0);
+        @include transition;    
+    }
+}
+
+.fade_in_element {
+    @include fade_in_element;
+}
+
+.fade_in_container {
+    @include fade_in_container;
+}
+
+// seprate class for this, because the animation is part of a larger sequence of them
+.landing_page_header_fade {
+    // this is the same as fade_in_element, but with a longer transition
+    opacity: 0;
+    transform: translate(0, 10vh);
+    @include longtransition;
+    &.visible {
+        opacity: 1;
+        transform: translate(0, 0);
+        @include longtransition;    
+    }
+}
+
+@mixin fade_bottom{
+    opacity: 0;
+    transform: translate(0, 10vh);
+    @include transition;
+    @include fade_in_delay(0.5s);
+    &.fade_bottom{
+        opacity: 1;
+        transform: translate(0, 0);
+        @include transition;   
+        @include fade_in_delay(0.5s);         
+    }
+}
+
+@mixin fade_top{
+    opacity: 0;
+    transform: translate(0, -10vh);
+    @include transition;
+    &.fade_top{
+        opacity: 1;
+        transform: translate(0, 0);
+        @include transition;            
+    }
+}
+
+.parallax {
+//   transform: translateY(0); /* Initialize to no transformation */
+//   transition: transform 0.3s ease-in-out; /* Smooth scrolling effect */
+}
+
+
+
+// animation stlying
+// here we write added styles that are neccessary for the animations to appear properly
+
+@mixin animations {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0px;
+}
+
+// 
+
+.ani_background_reveal {
+    height: 0%;
+}
+.ani_letterwave, 
+.ani_wordwave, 
+.ani_fade_up,
+.ani_fade_up_fold,
+.ani_fade_up_letter,
+.ani_fade_up_fold_top_level {
+    @include animations;
+}
+
+.ani_fade_up_fold, .ani_fade_up, .ani_fade_up_fold_top_level {
+// these attributes are neccessary for this animation to work
+    .word_wrap {
+        overflow: hidden;
+        position: relative;
+        // background-color: $offblack;
+        // @include transition;
+        // line-height: 10.5rem;
+        // this is important -> corrective styles for animated text
+        //  the webfonts are misaligned
+        // max-height: 58px;
+        // max-height: 64px;
+        // @include respond-to('md') {
+        //     max-height: 118px;
+        // }
+        // @include respond-to('xl') {
+        //     max-height: 162px;
+        // }
+        .word {
+            // background-color: $offblack;
+            position: relative;
+            display: inline-flex;
+            // @include shorttransition;
+            // @include respond-to('lg') {
+            //     max-height: 162px;
+            // }
+        }
+    }
+}
+
+// make sure these are hidden initially
+.ani_fade_up, .ani_fade_up_fold, .ani_fade_up_fold_top_level {
+    transform: translateY(100px);
+    opacity: 0;
+    @include shorttransition;
+    &.reveal {
+        transform: translateY(0px);
+        opacity: 1;
+        @include shorttransition;
+    }
+}
+
+// this word with the animation code to avoid widows.
+.break_line {
+    display: flex;
+}
+
+/* #Transforms
+================================================== */
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+     -moz-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+       -o-transform: scale($ratio);
+          transform: scale($ratio);
+}
+
+
+/* #Buttons
+================================================== */
+
+// simplest button, just an underline with a hover
+
+@mixin buttonsimple {
+    text-decoration: underline;
+    @include transition;
+    &:hover {
+        text-decoration: none;
+        @include transition;
+    }
+}
+.btn_simple {
+    @include buttonsimple;
+}
+// standard fade/border hover button for common <a> tags
+@mixin buttonanchor {
+    @include transition;
+    display: block;
+    font-weight: 600;
+    transform: translateX(0px);
+    @include transition;
+    &:before {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 37px;
+        width: 65px;
+        position: absolute;
+        left: -66px;
+        @include transition;
+        @include respond-to('md') {
+            height: 100%;
+            left: -64px;
+        }
+    }
+    &:hover {
+        transform: translateX(56px);
+        @include transition;
+    }
+}
+.btn_anchor {
+    @include buttonanchor;
+}
+
+// pill-shaped button with arrow effect either side 
+@mixin buttondefault {
+    white-space: nowrap;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 4px 20px;
+    background-color: $magenta;
+    font-weight: 500;
+    border: 1px transparent solid;
+    @include border_radius;
+    @include shorttransition;
+    &:before {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        // max-height: fit-content;
+        display: inherit;
+        height: 13px;
+        width: 30px;
+        // margin-top: 9px;
+        position: absolute;
+        top: 10px;
+        z-index: 2;
+        transform: translateX(-200%);
+        @include shorttransition;
+    }
+    &:after {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: block;
+        height: 13px;
+        width: 30px;
+        position: relative;
+        top: 0;
+        transform: translateX(0%);
+        @include shorttransition;
+    }
+    span {
+        transform: translateX(0%);
+        @include shorttransition;
+    }
+    &:hover {
+        &:before {
+            transform: translateX(0%);
+            @include shorttransition;
+        }
+        &:after {
+            transform: translateX(200%);
+            @include shorttransition;
+        }
+        span {
+            transform: translateX(56%);
+            @include shorttransition;
+        }
+    }
+}
+.btn_default {
+    @include buttondefault;
+}
+
+// arrows either side  & underline button
+// ** must add inline <img src="arrow"> tag into <a> tag! **
+// we do this instead of :before/:after becaause real space > absolute space.
+@mixin buttonsecond {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
+    min-width: 140px;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    width: fit-content;
+    @include respond-to('lg') {
+        // min-width: 222px;
+        font-size: 42px;
+    }
+    overflow: hidden;
+    @include shorttransition;
+    span {
+        min-height: 60px;
+        display: inline-flex;
+        align-items: center;
+        img {
+            height: 28px;
+            margin-left: 10px;
+            width: 24px;
+            top: -1px;
+            position: relative;
+            right: 0;
+            @include respond-to('md') {
+                width: 44px;
+                margin-left: 14px;
+                top: -2px;
+            }
+        }
+        @include shorttransition;
+    }
+    // arrow before
+    &:before {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inherit;
+        height: 28px;
+        width: 34px;
+        position: absolute;
+        left: 0;
+        top: 18px;
+        transform: translateX(-150%);
+        @include respond-to('md') {
+            width: 44px;
+            top: 15px;
+        }
+        @include shorttransition;
+    }
+    // underline
+    &:after {
+        content: '';
+        background-color: $white;
+        display: block;
+        height: 4px;
+        width: 0%;
+        position: absolute;
+        left: 0;
+        bottom: 6px;
+        @include shorttransition;
+    }
+    // hover
+    &:hover {
+        &:before {
+            transform: translateX(0%);
+            @include shorttransition;
+        }
+        &:after {
+            // transform: translateX(200%);
+            width: 100%;
+            @include shorttransition;
+        }
+        span {
+            @include respond-to('md') {
+                // transform: translateX(48px);
+                transform: translateX(55px);
+            }
+            transform: translateX(43px);
+            @include shorttransition;
+            img {
+                transform: translateX(155%);
+                @include shorttransition;
+            }
+        }
+    }
+}
+.btn_second{
+    @include buttonsecond;
+}
+
+// arrow rotate button
+// ** must add inline <img src="arrow"> tag into <a> tag! **
+// we do this instead of :before/:after becaause real space > absolute space.
+@mixin buttonthird {
+    position: relative;
+    text-decoration: none;
+    width: fit-content;
+    height: auto;
+    border-bottom: 2px solid transparent;
+    @include transition;
+    img {
+        width: 10px;
+        height: 10px;
+        // push it up slightly
+        margin-bottom: 1px;
+        @include transition;
+    }
+    &:hover {
+        border-bottom: 2px solid $black;
+        img {
+            transform: rotate(45deg);
+            @include transition;
+        }
+        &:after {
+            width: 100%;
+            @include transition;
+        }
+    }
+}
+.btn_third {
+    @include buttonthird;
+}
+
+// pill-shaped button
+@mixin buttonfourth{
+    position: relative;
+    text-decoration: none;
+    border: 1px $white solid;
+    padding: 0px 10px;
+    font-size: 12px;
+    @include respond-to('xl') {
+        font-size: 14px;
+    }
+    @include border_radius;
+    @include shorttransition;
+    &:hover {
+        background-color: $magenta;
+        color: $white;
+        @include shorttransition;
+    }
+}
+.btn_fourth {
+    @include buttonfourth;
+}
+
+/* # Padding solutions
+================================================== */
+
+@mixin textboxpad{
+    width:90%;
+    padding: 5vh 0;
+    margin: 0 auto;
+    @include respond-to('md'){
+        padding: 10vh 0;
+        width:60%;
+        margin: 0 auto;
+    }
+}
+
+@mixin textboxsmallpad {
+    width:90%;
+    padding: 0vh 0;
+    margin: 0 auto;
+    @include respond-to('md'){
+        padding: 0vh 0;
+        width:60%;
+        margin: 0 auto;
+    }
+}
+
+
+/* #Forms & Input fields
+================================================== */
+
+@mixin input_field_default {
+    border: none;
+    display: block;
+    background-color: $offwhite;
+    width: 80%;
+    // todo: use container padding? if we go down the padding route with the container?
+    // seems that the rendered input fields don't care about the screen widths..
+    padding: 5px 2.5%;
+    margin-bottom: 15px;
+    color: $black;
+    border-radius: 20px;
+}
+
+@mixin input_field_second {
+    border: 3px solid $offwhite;
+    display: block;
+    background-color: $black;
+    width: 90%;
+    // todo: use container padding? if we go down the padding route with the container?
+    // seems that the rendered input fields don't care about the screen widths..
+    padding: 10px 5%;
+    margin: 0; // corrective
+    margin-top: 10px; // styling
+    color: $white;
+    border: solid 1px $grey;
+    border-radius: 20px;
+}
+
+
+/* #Component Styles
+================================================== */
+@mixin partners_list {
+    padding: 60px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    justify-content: space-between;
+    @include respond-to('md') {
+        padding: 20px 0 0px 0;
+        justify-content: space-evenly;
+    }
+    @include respond-to('lg') {
+        padding: 40px 0 00px 0;
+        justify-content: space-evenly;
+    }
+    @include respond-to('xl') {
+        padding: 60px 0 0px 0;
+        justify-content: space-evenly;
+    }
+    
+    img {
+        max-width: 120px;
+        max-height: 80px;
+        @include respond-to('lg') {
+            max-width: 150px;
+            max-height: 80px;
+        }
+    }
+}
+
+@mixin glance_box {
+    @include border_radius_small;
+    border-radius: 10px;
+    overflow: hidden;
+    height: fit-content;
+    padding: 8px 8px 8px 8px;
+    border: solid 1px $grey;
+    justify-self: end;
+    @include respond-to('lg') {
+        padding: 12px;
+    }
+
+    .glance_box_title_wrap {
+        img {
+            @include border_radius_small;
+            max-width: 40px;
+        }
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    ul {
+        padding-top: 10px;
+    }
+    li {
+        font-size: 14px;
+        line-height: 20px;
+        list-style-type: '+  ';
+    }
+}
+
+/* #Dark Mode & Colours
+================================================== */
+
+// @mixin dark_mode {
+//     background-color: $black;
+//     @include transition;
+//     header li a{
+//         color: $white;
+//         @include transition;
+//     }
+//     section {
+//         @include transition;
+//         background-color: $black;
+//         h1, h2, h3, h4, h5, h6, p, a, ul, li, label{
+//             color: $white;
+//             border-color: $white;
+//             img {
+//                 filter: invert(1);
+//             }
+//         }
+//         div {
+//             color: $white;
+//             .slick-dots button {
+//                 filter: invert(1);
+//             }
+//         }
+//     }
+//     .icon, ::before, ::after {
+//         filter: invert(1);
+//         @include transition;
+//     }
+// }
+
+
+@mixin light_mode {
+    body {
+        background-color: $white !important;
+    }
+    .logo img {
+        filter: invert(1);
+    }
+    .service_arrow_down {
+        filter: invert(1);
+    }
+    .menu_icon_wrap {
+        background-color: #f5f5f58c !important;
+        .analogue_clock {
+            border-color: $black !important;
+            i {
+                background-color: $black !important;
+            }
+        }
+        #clock, #location {
+            color: $black !important;
+        }
+    }
+    main {
+        background-color: $white;
+        @include longtransition;
+    }
+    // overwritig both the standard and conditional styles, 
+    // as the footer behaviour is controlled with addClass
+    footer {
+        // added when at the top of the viewport
+        &.black {
+            @include longtransition;
+            background-color: $white;
+            @include longtransition;
+            &:before {
+                background-color: $white;
+                @include longtransition;
+            }
+        }
+    }
+    section {
+        // may need to put this back...
+        background-color: $white;
+        @include longtransition;
+        h1,h2,h3,h4,h5,h6,p,a, li {
+            color: $black;
+            border-color: $black;
+            // background-color: $white !important;
+            @include transition;
+        }
+        // border-bottom-left-radius: 0px;
+        // border-bottom-right-radius: 0px;
+    }
+    .bulletin_bar_projects_wrap {
+        label {
+            border-color: $black !important;
+        }
+        .category_label {
+            border-color: $black !important;
+            a {
+                color: $black;
+            }
+        }
+    }
+    // revert these back to normal
+    // todo: change it so you don't have to do this
+    .other_posts {
+        background-color: $offblack;
+        border-color: $white;
+        h1,h2,h3,h4,h5,h6,p,a, .word_wrap, .word {
+            color: $white;
+            border-color: $white;
+            // background-color: $offblack !important;
+        }
+    }
+    .bulletin_bar {
+        a, p, div {
+            color: $black;
+        }
+    }
+    .section_posts_agg, .page_archive_filter {
+        .post_row {
+            &:hover {
+                background-color: #624e4e1f !important;
+                @include longtransition;
+            }
+            .post-title::before {
+                filter: invert(1) !important;
+                @include longtransition;
+            }
+        }
+    }
+    ::selection {
+        background: $black;
+        color: $white;
+    }    
+}
+
+body[data-theme='dark'] {
+    // no styles - standard
+}
+
+body[data-theme='light'] {
+    @include light_mode;
+}
+
+
+// body {
+//     @include transition;
+//     // &.dark_mode {
+//     //     @include dark_mode;
+//     //     @include transition;
+//     // }
+//     &.light_mode {
+//         @include light_mode;
+//         @include transition;
+//     }
+// }
+
+
+
+
+
+// these are for overwriting default dark mode colours
+// set the arguments to custom colours 
+@mixin arm_dark_mode($bg_color, $color, $border_color) {
+    background-color: $bg_color;
+    color: $color;
+    border-color: $border_color;
+    * {
+        background-color: $bg_color;
+        color: $color;
+        border-color: $border_color;
+    
+    }
+}
+
+/* # - other?
+================================================== */
+
+@mixin slick_arrows {
+    .slick-prev {
+        left: 10px;
+        width: 60px;
+        &:before {
+            content: url('./assets/images/svg/arrow-back.svg');
+            color: $black;
+        }
+    }
+    .slick-next {
+        right: 10px;
+        width: 60px;
+        &:before {
+            content: url('./assets/images/svg/arrow-next.svg');
+            color: $black;
+        }
+    }
+}
+
+@mixin slick_dots {
+    .slick-dots {
+        left: 0;
+        width: 100%;
+        text-align: center;
+        button {
+            border-color: $black;
+        }
+        .slick-active {
+            button {
+                background-color: $black;
+            }
+        }
+        &.arm_dark_mode {
+            // overwrite default dark mode styles here
+            button {
+                // @include arm_dark_mode($bg_colour, $color, $border_colour);
+            };
+            .slick-active {
+                button {
+                    // background-color: $white;
+                }
+            }
+        }
+    }
+}
+
+// todo: what is this? 
+@mixin slidebg{
+    width: calc(100% - 60px);
+    backdrop-filter: blur(5px);
+    background-color: $offwhite;
+    padding: $px30;
+    margin: 0%;
+    text-align: center;
+    @include border_radius;
+    @include respond-to('md'){
+        text-align: left;
+        padding: $px30 $px50;
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        z-index: 200;
+        width:50%;
+        &.overleft{
+            left:0;
+        }
+        &.overright{
+            right:0;
+        }
+        &.overcenter{
+            left:25%;
+        }
+    }
+    a.button{
+        @include buttonsecond;
+    }
+}
+

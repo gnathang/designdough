@@ -1,0 +1,744 @@
+// @import url("https://use.typekit.net/jaj7yqg.css");
+// Fonts 
+
+
+
+// // medium italic
+// @font-face {
+// 	font-family: "FT Sterling";
+// 	src: url("assets/fonts/ft-sterling/ftsterling-mediumitalic-webfont.woff") format("woff"),
+// 		 url("assets/fonts/ft-sterling/ftsterling-mediumitalic-webfont.woff2") format("woff2");
+// 	font-weight: medium;
+// 	font-style: normal;
+// }
+
+// // regular italic
+// @font-face {
+// 	font-family: "FT Sterling";
+// 	src: url("assets/fonts/ft-sterling/ftsterling-regularitalic-webfont.woff") format("woff"),
+// 		 url("assets/fonts/ft-sterling/ftsterling-regularitalic-webfont.woff2") format("woff2"),
+// 		 url("../../fonts/ft-sterling/FTSterling-RegularItalic.otf") format("otf");
+// 	font-weight: normal;
+// 	font-style: italic;
+// }
+
+ 
+// // medium normal
+// @font-face {
+// 	font-family: "FT Sterling";
+// 	src: url("assets/fonts/ft-sterling/ftsterling-medium-webfont.woff") format("woff"),
+// 		 url("assets/fonts/ft-sterling/ftsterling-medium-webfont.woff2") format("woff2"),
+// 		 url("../../fonts/ft-sterling/FTSterling-Medium.otf") format("otf");
+// 	font-weight: medium;
+// 	font-style: normal;
+// }
+
+
+// // regular normal
+// @font-face {
+// 	font-family: "FT Sterling";
+// 	src: url("assets/fonts/ft-sterling/ftsterling-regular-webfont.woff") format("woff"),
+// 		 url("assets/fonts/ft-sterling/ftsterling-regular-webfont.woff2") format("woff2"),
+// 		 url("../../fonts/ft-sterling/FTSterling-Regular.otf") format("otf");
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+
+
+// 
+// 
+// 
+// 
+// // new font face styles,,,
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-Light.eot');
+//     src: url('FTSterling-Light.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-Light.woff2') format('woff2'),
+//         url('FTSterling-Light.woff') format('woff'),
+//         url('FTSterling-Light.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-MediumItalic.eot');
+//     src: url('FTSterling-MediumItalic.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-MediumItalic.woff2') format('woff2'),
+//         url('FTSterling-MediumItalic.woff') format('woff'),
+//         url('FTSterling-MediumItalic.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-Light_1.eot');
+//     src: url('FTSterling-Light_1.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-Light_1.woff2') format('woff2'),
+//         url('FTSterling-Light_1.woff') format('woff'),
+//         url('FTSterling-Light_1.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-BoldItalic.eot');
+//     src: url('FTSterling-BoldItalic.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-BoldItalic.woff2') format('woff2'),
+//         url('FTSterling-BoldItalic.woff') format('woff'),
+//         url('FTSterling-BoldItalic.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-Medium.eot');
+//     src: url('FTSterling-Medium.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-Medium.woff2') format('woff2'),
+//         url('FTSterling-Medium.woff') format('woff'),
+//         url('FTSterling-Medium.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-LightItalic.eot');
+//     src: url('FTSterling-LightItalic.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-LightItalic.woff2') format('woff2'),
+//         url('FTSterling-LightItalic.woff') format('woff'),
+//         url('FTSterling-LightItalic.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-Bold.eot');
+//     src: url('FTSterling-Bold.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-Bold.woff2') format('woff2'),
+//         url('FTSterling-Bold.woff') format('woff'),
+//         url('FTSterling-Bold.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-MediumItalic_1.eot');
+//     src: url('FTSterling-MediumItalic_1.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-MediumItalic_1.woff2') format('woff2'),
+//         url('FTSterling-MediumItalic_1.woff') format('woff'),
+//         url('FTSterling-MediumItalic_1.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-LightItalic_1.eot');
+//     src: url('FTSterling-LightItalic_1.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-LightItalic_1.woff2') format('woff2'),
+//         url('FTSterling-LightItalic_1.woff') format('woff'),
+//         url('FTSterling-LightItalic_1.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-MediumItalic_2.eot');
+//     src: url('FTSterling-MediumItalic_2.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-MediumItalic_2.woff2') format('woff2'),
+//         url('FTSterling-MediumItalic_2.woff') format('woff'),
+//         url('FTSterling-MediumItalic_2.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-BoldItalic_1.eot');
+//     src: url('FTSterling-BoldItalic_1.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-BoldItalic_1.woff2') format('woff2'),
+//         url('FTSterling-BoldItalic_1.woff') format('woff'),
+//         url('FTSterling-BoldItalic_1.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'FT Sterling';
+//     src: url('FTSterling-Bold_1.eot');
+//     src: url('FTSterling-Bold_1.eot?#iefix') format('embedded-opentype'),
+//         url('FTSterling-Bold_1.woff2') format('woff2'),
+//         url('FTSterling-Bold_1.woff') format('woff'),
+//         url('FTSterling-Bold_1.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+
+
+// new new new font face styles
+
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Light.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Light.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Light.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Light.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Light.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Light.svg#FTSterling-Light') format('svg');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Regular.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Regular.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Regular.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Regular.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Regular.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Regular.svg#FTSterling-Regular') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Medium.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Medium.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium.svg#FTSterling-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Bold.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold.svg#FTSterling-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-LightItalic.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-LightItalic.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-LightItalic.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-LightItalic.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-LightItalic.svg#FTSterling-MediumItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-RegularItalic.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-RegularItalic.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-RegularItalic.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-RegularItalic.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-RegularItalic.svg#FTSterling-MediumItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-MediumItalic.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-MediumItalic.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-MediumItalic.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-MediumItalic.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-MediumItalic.svg#FTSterling-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Medium_2.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Medium_2.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium_2.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium_2.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium_2.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Medium_2.svg#FTSterling-Medium') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FT Sterling';
+    src: url('assets/fonts/ft-sterling/FTSterling-Bold_1.eot');
+    src: url('assets/fonts/ft-sterling/FTSterling-Bold_1.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold_1.woff2') format('woff2'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold_1.woff') format('woff'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold_1.ttf') format('truetype'),
+        url('assets/fonts/ft-sterling/FTSterling-Bold_1.svg#FTSterling-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+$primary-font: 'FT Sterling', sans-serif;
+// $secondary-font: none
+
+// set the global line height
+$lineheight : 14;
+
+// $htitle : 100;
+
+// @mixin h-title{
+// 	font-family: $primary-font;
+//     font-size: $htitle + px;
+//     line-height: $htitle + $lineheight + px;
+// 	margin-bottom: 20px;
+// 	font-weight: 500;
+// 	letter-spacing: 0px;
+// 	-webkit-font-smoothing: antialiased;
+// 	@include respond-to(md) {
+// 	    font-size: $htitle * 0.75 + px;
+// 	    line-height: $htitle * 0.6 + $lineheight + px;
+// 		letter-spacing: -6px;
+// 	}
+// 	@include respond-to(lg) {
+// 	    font-size: $htitle * 0.8 + px;
+// 	    line-height: $htitle * 0.65 + $lineheight + px;
+// 		letter-spacing: -7px;
+// 	}
+// 	@include respond-to(xl) {
+// 	    font-size: $htitle + px;
+// 	    line-height: $htitle * 0.85 + $lineheight + px;
+// 		letter-spacing: -10px;
+// 	}
+// 	@include respond-to(tablet) {
+// 	    font-size: $htitle * 0.75 + px;
+// 	    line-height: $htitle * 0.6 + $lineheight + px;
+// 	}
+// 	@include respond-to(mobile) {
+// 	    font-size: $htitle * 0.5 + px;
+// 	    line-height: $htitle * 0.4 + $lineheight + px;
+// 		letter-spacing: -5px;
+// 	}
+// 	@include respond-to(sm) {
+// 	    font-size: $htitle * 0.5 + px;
+// 	    line-height: $htitle * 0.4 + $lineheight + px;
+// 		letter-spacing: -5px;
+// 	}	
+// }
+
+// .big_title {
+// 	@include h-title;
+// }
+
+$hone : 160;
+
+@mixin h-one{
+	font-family: $primary-font;
+    font-size: $hone + px;
+	line-height: 1;
+	font-weight: 300;
+	letter-spacing: -12px;
+	line-height: 0.75;
+	color: $white;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: 120px;
+	    // line-height: $hone * 0.8 + $lineheight + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $hone + px;
+	    // line-height: $hone * 0.9 + $lineheight + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $hone + px;
+	}
+	@include respond-to(tablet) {
+	    font-size: 120px;
+	    // line-height: $hone * 0.8 + $lineheight + px;
+	}
+	@include respond-to(mobile) {
+		font-size: 3.5rem;
+		letter-spacing: -6px;
+	}
+	@include respond-to(sm) {
+		font-size: 3.5rem;
+		letter-spacing: -6px;
+	}	
+}
+
+h1, .large-header {
+	@include h-one;
+}
+
+// h2: used for headings in all flexes underneath the page header, which uses h1
+$htwo : 100;
+@mixin h-two{
+	font-family: $primary-font;
+    font-size: $htwo + px;
+	font-weight: 300;
+	letter-spacing: -5.6px;
+	line-height: 0.9;
+	text-transform: uppercase;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: $htwo * 0.6 + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $htwo * 0.9 + px;
+	    // line-height: $htwo * 0.9 + $lineheight + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $htwo + px;
+	}
+	@include respond-to(tablet) {
+	    font-size: $htwo * 0.6 + px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $htwo * 0.4 + px;
+		letter-spacing: -2px;
+	}
+	@include respond-to(sm) {
+	    font-size: $htwo * 0.4 + px;
+		letter-spacing: -2px;
+	}	
+}
+
+h2, .large-header {
+	@include h-two;
+}
+
+// h3: used for subheadings within flexes, after an h2
+$hthree : 50;
+@mixin h-three{
+	font-family: $primary-font;
+    font-size: $hthree + px;
+    line-height: $hthree + $lineheight + px;
+	font-weight: 500;
+	letter-spacing: -3px;
+	line-height: 2.6rem;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: $hthree * 0.8 + px;
+	}
+	@include respond-to(lg) {
+		font-size: $hthree + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $hthree + px;
+	}
+	@include respond-to(tablet) {
+		font-size: $hthree * 0.8 + px;
+		letter-spacing: -2px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $hthree * 0.6 + px;
+		letter-spacing: -2px;
+	}
+	@include respond-to(sm) {
+	    font-size: $hthree * 0.6 + px;
+		letter-spacing: -2px;
+	}	
+}
+
+h3, .medium-header {
+	@include h-three;
+}
+
+// h4 
+$hfour : 24;
+@mixin h-four{
+	font-family: $primary-font;
+    font-size: $hfour + px;
+	line-height: 1.2;
+	font-weight: 500;
+	letter-spacing: -0.9px;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: $hfour * 0.75 + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $hfour + px;
+	    // line-height: $hfour * 0.9 + $lineheight + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $hfour + px;
+	}
+	@include respond-to(tablet) {
+	    font-size: $hfour * 0.8 + px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $hfour * 0.6 + px;
+		letter-spacing: 0px;
+	}
+	@include respond-to(sm) {
+	    font-size: $hfour * 0.6 + px;
+		letter-spacing: 0px;
+	}	
+}
+
+h4 {
+	@include h-four;
+}
+
+
+// h5: used for small titles and subheadings.
+$hfive : 22;
+
+@mixin h-five{
+	font-family: $primary-font;
+    font-size: $hfive + px;
+    line-height: $hfive + $lineheight + px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	letter-spacing: -1px;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: $hfive * 0.8 + px;
+	    line-height: $hfive * 0.8 + $lineheight + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $hfive * 0.9 + px;
+	    line-height: $hfive * 0.9 + $lineheight + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $hfive + px;
+	}
+	@include respond-to(tablet) {
+	    font-size: $hfive * 0.8 + px;
+	    line-height: $hfive * 0.8 + $lineheight + px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $hfive * 0.7 + px;
+	    line-height: $hfive * 0.7 + $lineheight + px;
+	}
+	@include respond-to(sm) {
+	    font-size: $hfive * 0.7 + px;
+	    line-height: $hfive * 0.7 + $lineheight + px;
+	}	
+}
+
+h5 {
+	@include h-five;
+}
+
+
+// h6: used for categories and tags. 
+$hsix : 12;
+
+@mixin h-six {
+	font-family: $primary-font;
+    font-size: $hsix + px;
+    line-height: $hsix + 8 + px;
+	font-weight: 200;
+    letter-spacing: 0px;
+    border: solid 1px #FBFBFB;
+	padding: 0px 12px;
+	@include border_radius;
+	width: fit-content;
+	height: fit-content;
+	-webkit-font-smoothing: antialiased;
+
+	@include respond-to(md) {
+	    font-size: $hsix + px;
+		// line-height: $hsix + 6 + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $hsix + px;
+    	// line-height: $hsix + 7 + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $hsix + 2px;
+	}
+	@include respond-to(tablet) {
+	    font-size: $hsix + px;
+    	// line-height: $hsix + 6 + px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $hsix + px;
+		padding: 4px 10px 0px 10px;
+    	// line-height: $hsix + 5 + px;
+	}
+	@include respond-to(sm) {
+	    font-size: $hsix + px;
+    	line-height: $hsix + px;
+		padding: 2px 10px;
+	}	
+}
+
+h6 {
+	@include h-six;
+}
+
+blockquote {
+	@include h-two;
+}
+
+
+$para : 14;
+
+@mixin body{
+ 	font-family: $primary-font;
+    font-size: $para + px;
+    line-height: $para + 8 + px;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to(md) {
+	    font-size: $para * 0.9 + px;
+	    line-height: $para + 9 + px;
+	}
+	@include respond-to(lg) {
+	    font-size: $para * 0.9 + px;
+	    line-height: $para + 9 + px;
+	}
+	@include respond-to(xl) {
+	    font-size: $para + px;
+	}
+	@include respond-to(tablet) {
+	    font-size: $para * 0.8 + px;
+	    line-height: $para + 8 + px;
+	}
+	@include respond-to(mobile) {
+	    font-size: $para * 0.9 + px;
+	    line-height: $para + 9 + px;
+	}
+	@include respond-to(sm) {
+	    font-size: $para * 0.9 + px;
+	    line-height: $para + 9 + px;
+	}
+}
+
+p, .plain-text {
+	@include body;
+}
+
+
+body{
+	@include body;
+	margin-bottom: 0;
+}
+
+blockquote {
+  font-style: italic;	
+}
+
+strong, b, .bold {
+    font-weight: 700;
+}
+
+em, i, .italic {
+    font-weight: 700;
+}
+
+
+ol, ul, li {
+	@include body;
+}
+
+p, .plain-text {
+	@include body;
+}
+
+ul li {
+  list-style-type: disc;
+  margin-left: 1rem;
+}
+
+ol li {
+  list-style-type:decimal;
+  margin-left: 1rem;
+	// &::marker{
+	// 	@include h-one;
+	// 	@include respond-to(md){
+	// 		@include h-two;
+	// 	}
+	// 	color: $offblack;
+	// }
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+	position: relative;
+	cursor: none;
+}
+
+input {
+	
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
+	widows: 2;
+}
+
+textarea{
+	@include body;
+	font-weight: 600;
+	padding: 10px 20px;
+	display: block;
+}
+
+input[type=submit]{
+	@include buttondefault;
+}
+
+.bold {
+  font-weight:700;
+}
+
+.italic{
+  font-style: italic;	    
+}
+
+.caps{
+    text-transform: uppercase;
+}
+
+.lower{
+    text-transform: lowercase;
+}
+
+input, textarea{
+     font-family: $primary-font;
+     font-weight: 400;
+}
+

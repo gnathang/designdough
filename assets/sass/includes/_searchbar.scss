@@ -1,0 +1,18 @@
+
+.searchbar_default {
+    form {
+        div {
+            display: flex;
+            align-items: baseline;
+            gap: 40px;
+            input[type=text] {
+                @include input_field_default;
+          
+            }   
+            input[type=submit] {
+                @include buttonsecond;
+                max-width: 200px;
+            }     
+        }
+    }
+}

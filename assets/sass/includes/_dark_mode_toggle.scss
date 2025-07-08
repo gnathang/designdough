@@ -1,0 +1,64 @@
+
+.light-mode-button {
+    background: 0;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 30px;
+    width: 60px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.light-mode-button:focus {
+    outline: none; /* Not ideal for accessibility */
+}
+
+.light-mode-button span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #d6d7db;
+    transition: 0.3s;
+}
+
+.light-mode-button span:nth-child(2) {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* Light & Dark Mode Styles
+		--------------------------- */
+
+// body {
+//     background-color: #f6f6f6;
+//     transition: background-color 0.3s;
+// }
+
+// body[light-mode="dark"] {
+//     background-color: #141516;
+//     color: #ced4e2;
+// }
+
+body[light-mode="dark"] .light-mode-button span:nth-child(1) {
+    background-color: #ced4e2;
+    color: #141516;
+}
+
+body[light-mode="dark"] .light-mode-button span:nth-child(2) {
+    left: 35px;
+    background-color: #141516;
+}
+
+// body[light-mode="dark"] a {
+//     color: #141516;
+// }

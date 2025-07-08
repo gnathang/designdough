@@ -1,0 +1,160 @@
+.section_project_page_header {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    opacity: 0;
+    @include shorttransition;
+    @include respond-to('lg') {
+        height: 100vh;
+    }
+    // this must be different for videos.
+    &.video_header {
+        height: 38vh;
+        @include respond-to('sm') {
+            top: 65px;
+        }
+        @include respond-to('lg') {
+            height: 100vh;
+        }
+    }
+}
+.section_project_intro {
+    @include sections_padding;
+    .project_title {
+        // overwriting default
+        padding: 40px 0px 10px 0px;
+    }
+    .title_bar {
+        @include title_bar;
+        padding-bottom: 12px;
+    }
+    .project_intro_grid {
+        height: auto;
+        gap: 20px;
+        width: 100%;
+        @include respond-to('md') {
+            width: 70%;
+        }
+        @include respond-to('lg') {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 0.8fr 1fr;
+            grid-template-rows: 0.4fr 1fr;
+            column-gap: 80px;
+        }
+        &.no_summary {
+            // remove blank space in lieu of summary empty summary field
+            grid-template-rows: 0.1fr 1fr;
+        }
+        .project_summary {
+            h3 {
+                text-transform: uppercase;
+            }
+            padding-bottom: 10px;
+            grid-column: 1 / span 2;
+        }
+        .services_wrap {
+            margin: 30px 0px;
+            @include respond-to('lg') {
+                margin: 0px;
+            }
+            .services_label {
+                padding-bottom: 10px;
+            }
+            .service_boxes {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr 1fr;
+                &.single_service {
+                    @include respond-to('sm') {
+                        grid-template-columns: 1fr 0.5fr;
+
+                    }
+                }
+                @include respond-to('lg') {
+                    width: 70%;
+                    gap: calc($conpad * 2);
+                }
+                .glance_box {
+                    @include glance_box;
+                    height: auto;
+                    width: auto;
+                    justify-self: auto;
+                    @include respond-to('lg') {
+                        min-width: 240px;
+                    }
+                    .glance_box_title_wrap {
+                        @include respond-to('sm') {
+                            gap: 10px;
+                            font-size: 20px;
+                        }
+                        .service_arrow_down {
+                            margin-left: auto;
+                            width: 14px;
+                            transform: rotateY(0deg);
+                            @include transition;
+                            &.active {
+                                transform: rotateY(180deg);
+                                @include transition;
+                            }
+                            @include respond-to('lg') {
+                                display: none;
+                            }
+                        }
+                    }
+                    .services_list {
+                        // allow for the dropdown functionality on mobile view. 
+                        @include respond-to('sm') {
+                            opacity: 0;
+                            height: 0px;
+                            padding: 0px;
+                            @include shorttransition;
+                            &.reveal {
+                                opacity: 1;
+                                height: auto;
+                                padding: 10px 0px;
+                                @include shorttransition;
+                            }
+                        }
+                        @include respond-to('md') {
+                            // we can add !important here to override .reveal styles when changing viewport
+                            // this is a safety net
+                            opacity: 1 !important;
+                            height: auto !important;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .brief_wrap {
+            display: grid;
+            gap: 20px;
+            @include respond-to('sm') {
+                h4 {
+                    font-size: 16px;
+                }
+            }
+            @include respond-to('lg') {
+                width: 78%;
+            }
+        }
+    }
+}
+
+.other_posts {
+    .title_bar {
+        @include title_bar;
+    }
+    .title_box {
+        @include title_box;
+    }
+    .post_grid {
+        @include post_grid;
+    }
+    .link_box {
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+

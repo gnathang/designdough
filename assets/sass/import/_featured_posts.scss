@@ -1,0 +1,159 @@
+
+// hide the padding on the latest (archive) page
+// for page header fixed position scrolling effect 
+.page-id-10 .featured_post_slider {
+    padding-top: 0 !important;
+}
+
+.featured_post_slider { 
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    .post_cont {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        .featured_post_wrap {
+            display: block !important;
+            width: auto !important;
+            border-top-right-radius: 40px;
+            border-top-left-radius: 40px;
+            padding: 50px 20px;
+            @include respond-to('sm') {
+                height: auto;
+            }
+            height: 460px;
+            @include respond-to('lg') {
+                height: 540px;
+            }
+            // &.publication {
+            //     background-color: $deepgreen;
+            // }
+            // &.event { 
+            //     background-color: $lightblue
+            // }
+            // &.view {
+            //     background-color: $coral;
+            // }
+            // &.post {
+            //     background-color: $seagreen;
+            // }
+            // &.project {
+            //     background-color: $blue;
+            // }
+            .title_wrapper {
+                text-transform: uppercase;
+                color: $offwhite;
+                border-bottom: solid 0.5px $offwhite;
+                display: flex;
+                flex-wrap: wrap;
+                padding-bottom: 20px;
+
+                @include respond-to('md') {
+                    flex-wrap: nowrap;
+                } 
+                .title_inner_wrap {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 90%;
+                    h2 {
+                        margin-bottom: 0px;
+                        font-size: 22px;
+                        @include respond-to('md') {
+                            font-size: 30px;
+                        }
+                        @include respond-to('lg') {
+                            font-size: 42px;
+                        }
+                        
+                    }
+                }
+            }
+            .post_wrap_grid {
+                padding: 40px 0 20px 0;
+                display: grid;
+                @include respond-to('md') {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 70px;
+                }
+                .image_wrapper {
+                    img {
+                        @include respond-to('sm') {
+                            width: 100%;
+                            height: 150px;
+                        }
+                        width: 100%;
+                        @include respond-to('lg') {
+                            max-height: 410px;
+                        }
+                        object-fit: cover;
+                    }
+                }
+                .text_wrapper {
+                    color: $offwhite;
+                    @include respond-to('lg') {
+                        padding: 70px;
+                    }
+                    .text_info_wrapper {
+                        display: flex;
+                        justify-content: space-between;
+                        p {
+                            text-transform: uppercase;
+                            font-weight: 100;
+                        }
+                    }
+                    a {
+                        align-self: baseline;
+                        text-transform: uppercase;
+                        color: $offwhite;
+                    }
+                    .text_title_wrapper h3 {
+                        font-weight: 600
+                    }
+                }
+            }
+            .see_all {
+                // @include cat_loc_tag;
+                border-color: $offwhite;
+                color: $offwhite;
+            }
+        }
+        .slick-dots {
+            width: 50%;
+            display: none !important;
+        }
+        .slick-next {
+            &:before {
+                content: url('/wp-content/themes/designdough/assets/images/svg/bc-next-btn-small.svg');
+            }
+            right: 20px;    
+            top: 13.2%;
+            @include respond-to('md') {
+                top: 60%;
+                right: 65px;
+                &:before {
+                    content: url('/wp-content/themes/designdough/assets/images/svg/bc-next-arrow.svg');
+                }
+            }
+        }
+        .slick-prev {
+            top: 8%;
+            @include respond-to('md') {
+                display: none !important;
+            }
+            right: 65px;
+            top: 60%;
+            &:before {
+                content: url('/wp-content/themes/designdough/assets/images/svg/bc-prev-btn-small.svg');
+            }
+        }
+    }
+}
+
+
+
+
+// <h6>
+//     <?php if($get_post_type == 'post') {?> News & Views
+//     <?php } elseif($get_post_type == 'case-study') { ?> Our work in action <?php } else { ?>
+//     Job
+//     Vacancy <?php } ?></h6>
+// <h6><?php echo $catname; ?></h6>

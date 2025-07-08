@@ -1,0 +1,19 @@
+ 
+.section_search_banner {
+    @include sections_padding;
+    .container {
+        .search_banner_grid {
+            display: grid;
+            gap: 40px;
+            @include respond-to('md') {
+                grid-template-columns: 1fr 1fr;
+            }
+            .text_rwap {
+                padding: 40px;
+            }
+            .searchbar_wrap {
+                padding: 40px;
+            }
+        }
+    }
+}

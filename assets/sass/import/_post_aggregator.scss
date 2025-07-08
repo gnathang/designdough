@@ -1,0 +1,55 @@
+
+
+.section_posts_agg {
+    @include sections_padding;
+    // this is to make the post rows appear above the big_text on the work page
+    @include respond-to('sm') {
+        overflow-x: hidden;
+    }
+    z-index: 2;
+    &.header_window {
+        margin-top: 600px;
+        // overwrite sections padding here
+        padding: 0;
+    }
+    &.remove_top_padding {
+        padding-top: 0;
+    }
+    .post_wrapper{
+        @include fade_top;
+    }
+    .title_bar {
+        @include title_bar;
+        @include container;
+    }
+    .title_box {
+        @include title_box;
+        @include container;
+
+    }
+
+    // styles for rows
+    .post_rows {
+        @include post_rows;
+    }
+
+    // styles for grid
+    .post_grid {
+        @include post_grid;
+    }
+
+    .link_box {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    // styles for slider
+    .post_slider {
+        @include post_slider;
+    }
+
+    // styles for editorial layout
+    .posts_editorial {
+        @include posts_editorial;
+    }
+}

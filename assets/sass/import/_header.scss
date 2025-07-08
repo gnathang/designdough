@@ -1,0 +1,79 @@
+
+header{
+    // background-color: $offwhite;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    // header must be assigned a fixed height 
+    // for the dropdown to work nicely
+    height: 50px;
+    z-index: 8;
+    opacity: 0;
+    transform: translate(0, -10vh);
+    @include transition;
+    &.visible {
+        opacity: 1;
+        transform: translate(0, 0);
+        @include longtransition; 
+    }
+    .header_wrap {
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+            .logo {
+                z-index: 1;
+                img {
+                    width: 100px;
+                    @include respond-to('md') {
+                        width: 140px;
+                    }
+                } 
+            }
+        .menu_icon_wrap {
+            // make this sit above the nav when active. 
+            z-index: 1;
+            background-color: #0000003b;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            @include border-radius;
+            padding: 6px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include longtransition;
+            gap: 8px;
+            @include respond-to('md') {
+                gap: 12px;
+            }
+            .menu_icon {
+                max-width: 50px;
+            }
+            &.hover {
+                filter: opacity(0.5);
+                @include longtransition;
+            }
+            &.active{
+                background-color: $magenta;
+                @include longtransition;
+            }
+        }
+    }
+
+    &.scroll {
+        .container {
+            .logo{
+                padding: 10px 0;
+                @include longtransition;
+                &.long_scroll{
+
+                }
+            }
+            // .nav {
+            //     @include transition;
+            // }
+        }
+        @include longtransition;
+    }
+}

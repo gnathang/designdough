@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "barba.js": "^1.0.0"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7"
+  }
+}

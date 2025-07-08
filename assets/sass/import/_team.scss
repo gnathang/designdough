@@ -1,0 +1,248 @@
+.section_team {
+    // we need this to achieve the half off screen effect for the slider slides.
+    overflow: hidden;
+    padding-bottom: 80px;
+    @include respond-to('lg') {
+        padding-bottom: 120px;
+    }
+    padding-bottom: 120px;
+    .container {
+        .splide {
+            .splide__track {
+                // overflow-x: auto; /* Enable horizontal scrolling */
+                // &::-webkit-scrollbar {
+                //     display: none;
+                // }
+                // scrollbar-width: none;
+                // padding: 0!important;
+                .splide__list {
+                    // justify-content: center;
+                    .splide__slide {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-end;
+                        position: relative;
+                        @include border_radius_small;
+                        @include respond-to('lg') {
+                            align-items: flex-start;
+                        }
+                        .member_image {
+                            @include border_radius_small;
+                            width: 100%;
+                            background-size: cover;
+                            height: 380px;
+                            @include respond-to('md') {
+                                height: 450px;
+                            }
+                            position: relative;
+                            margin: auto 10px;
+                            @include transition;
+                            .team_member_overlay {
+                                background-color: $white;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 5;
+                                opacity: 0;
+                                width: 100%;
+                                height: 100%;
+                                @include transition;
+                                &:hover {
+                                    opacity: 0.6;
+                                    @include transition;
+                                }
+                                .bio {
+                                    color: black;
+                                    position: relative;
+                                    top: 50%;
+                                    left: 36%;
+                                }
+                            }
+                        }
+                        .member_profile_wrap {
+                            background: linear-gradient(to bottom, #00000000 0%, #291d1d42 93%, #00000000 100%);;
+                            position: absolute;
+                            top: 0px;
+                            left: 10px;
+                            width: 100%;
+                            height: 100%;
+                            display: inline-flex;
+                            flex-direction: column;
+                            flex-wrap: initial;
+                            align-items: end;
+                            justify-content: end;
+                        }
+                        .member_name {
+                            padding-right: 30px;
+                        }
+                        .member_role {
+                            padding-right: 30px;
+                            padding-bottom: 20px;
+                        }
+                        .member_socials_wrap {
+                            img {
+                                width: 12px;
+                                height: 12px;
+                            }
+                            .email_icon {
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            @include transition;
+        }
+        .team_member_modal {
+            visibility: hidden;
+            opacity: 0;
+            z-index: -2;
+            background-color: $offwhite;
+            @include transition;
+            @include border-radius;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            display: block;
+            overflow: scroll;
+            @include respond-to(sm) {
+                height: calc(100% - 67px);
+                margin-top: 67px;
+            }
+            @include respond-to('lg') {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -45%);
+                width: 70vw;
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+            }
+            &.active {
+                visibility: visible;
+                opacity: 0.95;
+                z-index: 99;
+                @include transition;
+            }
+            // overwrite default typography.
+            p {
+                font-family: $primary-font;
+                margin-bottom: 0;
+            }
+            h3 {
+                font-size: 24px;
+                margin-bottom: 0;
+            }
+            .image_wrap {
+                padding: 10px; 
+                display: flex;
+                gap: 10px;
+                @include respond-to(sm) {
+                    margin-bottom: 30px;
+                }
+                @include respond-to('lg') {
+                    padding: 50px; 
+                    display: block;
+                }
+                .member_image_modal {
+                    margin-top: 65px;
+                    object-position: bottom left;
+                    object-fit: cover;
+                    width: auto;
+                    display: flex;
+                    max-height: 300px;
+                    @include border-radius;
+                    @include respond-to('md') {
+                        height: 400px;
+                    }
+                    @include respond-to(sm) {
+                        display: none;
+                    }
+                }
+                .member_info_wrap {
+                    @include respond-to(sm) {
+                        width: 50%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: baseline;
+                    }
+                    @include respond-to('lg') {
+                        width: 100%;
+                    }
+                    .member_name {
+                        margin-top: 10px;
+                        font-family: $primary-font;
+                        font-weight: 400;
+                        margin-bottom: 5px;
+                        font-size: 20px;
+                    }
+                    .member_role {
+                        font-weight: 200;
+                        font-size: 13px;
+                        margin-bottom: 0;
+                    }
+                    .member_socials_wrap {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 10px;
+                        img {
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                }
+            }
+            .text_wrap {
+                padding: 10px;
+                padding-bottom: 80px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                @include respond-to('lg') {
+                    padding: 50px; 
+                }
+                
+                .member_info_wrap {
+                    width: 100%;
+
+                }
+                h3 {
+                    @include respond-to(sm) {
+                        font-size: 18px
+                    }
+                }
+                p {
+                    @include respond-to(sm) {
+                        font-size: 11px;
+                    }
+                }
+            }
+            .member_modal_close {
+                position: absolute;
+                z-index: 99;
+                top: 74px;
+                right: 10px;
+                @include respond-to(sm) {
+                    top: 10px;
+                }
+                @include respond-to('lg') {
+                    top: 30px;
+                    right: 30px;
+                }
+                height: 40px;
+                width: 40px;
+                &:hover {
+                    @include transition;
+                    filter: opacity(0.5);
+                }
+            }
+        }
+    }
+    
+}
