@@ -1,0 +1,91 @@
+.section_cta_banner {
+    @include sections_padding;
+    
+    .cta_skinny,
+    .cta_text_image,
+    .cta_text_cols {
+        display: grid;
+        gap: 40px;
+        @include respond-to('lg') {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .cta_skinny {
+        .text_wrap {
+
+        }
+        .links_wrap {
+            text-align: center;
+            a {
+                height: fit-content;
+                width: fit-content;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 24px;
+                font-weight: 500;
+            }
+        }
+    }   
+    .cta_text_image {
+        @include respond-to('lg') {
+            border: solid 0.5px $grey;
+            padding: 6px;
+        }
+        border-radius: 15px;
+        .text_wrap {
+            @include respond-to('md') {
+                padding: 30px 30px 100px 30px;
+            }
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            .title_wrap {
+                padding-bottom: 20px;
+                display: grid;
+                gap: 30px;
+            }
+            .links_wrap {
+                display: grid;
+                gap: 15px;
+                // todo: mixin or something similar for this kind of button?
+                a {
+                    width: fit-content;
+                    display: flex;
+                    img {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
+        }
+        .image_wrap {
+            img {
+                @include border_radius_small;
+                object-fit: cover;
+            }
+        }
+    }
+    .cta_text_cols {
+        .text_wrap {
+
+        }
+        .links_wrap {
+            @include respond-to('lg') {
+                padding-left: 120px;
+            }
+            a {
+                width: fit-content;
+                align-items: center;
+                display: flex;
+                gap: 5px;
+                img {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+    
+}

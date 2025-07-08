@@ -1,0 +1,323 @@
+// here we are overriding the styles of the free version of CookieYes.
+.cky-revisit-bottom-left {
+    left: unset !important;
+    bottom: 29px !important;
+}
+.cky-btn-revisit-wrapper {
+    right: 43px;
+    bottom: 30px;
+    width: 22px !important;
+    height: 22px !important;
+    background: transparent !important;
+    z-index: 4;
+    cursor: none;
+    button {
+        display: none !important;
+    }
+    @include respond-to('sm') {
+        right: 23px;
+    }
+    // change the cookie icon to the black one when on the brandlabs page.
+    &.cookie_icon_black {
+        &:after {
+            background-image: url(./assets/images/svg/cookie-icon-white.svg);
+        }
+    }
+    &.visible {
+        opacity: 1 !important;
+        transform: translate(0, 0);
+        @include transition;
+
+    }
+    &.cky-revisit-bottom-left {
+        opacity: 0;
+        border: none;
+        border-right-color: transparent;
+        filter: invert(0);
+        z-index: 4;
+        cursor: none;
+        &:after {
+            content: '';
+            background-image: url(./assets/images/svg/cookie-icon-black.svg);
+            background-size: cover;
+            width: 22px;
+            height: 22px;
+            filter: invert(1);
+            position: absolute;
+            z-index: 2;
+            opacity: 1;
+            cursor: none;
+        }
+        &:hover {
+            &:before {
+                content: none;
+            }
+            &:after {
+                border: none !important;
+                border-right-color: transparent !important;
+                // filter: invert(18%) sepia(96%) saturate(6197%) hue-rotate(334deg) brightness(94%) contrast(112%);                @include shorttransition;
+                left: unset !important;
+                bottom: 0px !important;
+                filter: invert(17%) sepia(98%) saturate(7493%) hue-rotate(337deg) brightness(97%) contrast(104%);
+            }
+        }
+
+    }
+}
+
+.cky-consent-container {
+    opacity: 0;
+    @include transition;
+    &.visible {
+        opacity: 1;
+        transform: translate(0, 0);
+        @include transition;
+    }
+    width: 288px !important;
+    .cky-consent-bar {
+        .cky-notice {
+            .cky-title {
+                font-size: 40px;
+                line-height: 30px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                &::before {
+                    content: '';
+                    background-image: url(./assets/images/svg/cookie-icon-black.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+            .cky-notice-btn-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 16px;
+                flex-direction: column !important;
+                .cky-btn {
+                    @include border_radius; 
+                    margin: 0px;
+                    width: 100% !important;
+                    text-transform: none !important;
+                    font-size: 20px !important;
+                    padding: 12px 20px 10px 20px !important;
+                    // &.cky-btn-accept {
+                    //     @include buttondefault;
+                    //     background-color: $magenta !important;
+                    //     text-transform: none;
+                    //     border-color: $magenta !important;
+                    //     order: -1;
+                    //     &:before {
+                    //         margin-top: 14px;
+                    //     }
+                    //     &:hover {
+                    //         padding-left: 70px !important;
+                    //         &:before {
+                    //             transform: translateX(-150%);
+                    //         }
+                    //         &::after {
+                    //             transform: translateX(300%);
+                    //         }
+                    //     }
+                    // }
+                    // &.cky-btn-reject {
+                    //     @include buttondefault;
+                    //     // @include border_radius;
+                    //     border-color: $black !important;
+                    //     background-color: $black !important;
+                    //     color: $white !important;
+                    //     &:before {
+                    //         margin-top: 14px;
+                    //     }
+                    //     &:hover {
+                    //         padding-left: 70px !important;
+                    //         &:before {
+                    //             transform: translateX(-150%);
+                    //         }
+                    //         &::after {
+                    //             transform: translateX(300%);
+                    //         }
+                    //     }
+                    // }
+                    // &.cky-btn-customize {
+                    //     // @include buttondefault;
+                    //     order: 1 !important;
+                    //     border: none !important;
+                    //     color: $black !important;
+                    //     text-decoration: underline !important;
+                    //     &:hover {
+                    //         background-color: unset !important;
+                    //         text-decoration: none !important;
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+}
+
+.cky-preference-center {
+    font-family: $primary_font;
+    cursor: url(./assets/images/svg/magenta-circle.svg), auto;
+    .cky-preference-body-wrapper {
+        
+    }
+    .cky-prefrence-btn-wrapper {
+        @include respond-to('lg') {
+            display: flex !important;
+            gap: 10px !important;
+            justify-content: space-between !important;
+        }
+        .cky-btn {
+            max-width: 100%;
+            margin-right: 0px !important;
+            border-radius: 50px !important;
+            @include respond-to('lg') {
+                max-width: 28%;
+            }
+        }
+    }
+    .cky-accordion {
+        @include shorttransition;
+        .cky-accordion-item {
+            gap: 8px;
+            .cky-chevron-right {
+                &::before {
+                    content: '';
+                    background-image: url(./assets/images/svg/arrow-next.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    border: none !important;
+                    height: 10px !important;
+                    width: 16px !important;
+                    transform: rotate(0deg) !important;
+                    -webkit-transform: rotate(0deg) !important;
+                }
+            }
+        }
+
+        &.cky-accordion-active {
+            .cky-chevron-right {
+                
+                &::before {
+                    transform: rotate(90deg) !important;
+                }
+            }
+        }
+    }
+
+}
+
+// buttons 
+
+.cky-btn {
+    margin-right: 0px !important;
+    border-radius: 50px !important;
+}
+.cky-btn-accept, .cky-btn-reject {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-left: 30px !important;
+    @include shorttransition;
+    &:before {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        max-height: fit-content;
+        display: inherit;
+        height: 15px;
+        width: 30px;
+        margin-top: 9px;
+        position: absolute;
+        top: 23px;
+        z-index: 2;
+        transform: translateX(-200%);
+        @include shorttransition;
+    }
+    &:after {
+        content: '';
+        background-image: url(./assets/images/svg/arrow-right-white.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: block;
+        height: 15px;
+        width: 30px;
+        position: relative;
+        top: 0;
+        transform: translateX(0%);
+        @include shorttransition;
+    }
+}
+
+.cky-btn-accept {
+    // @include buttondefault;
+    background-color: $magenta !important;
+    text-transform: none;
+    border-color: $magenta !important;
+    order: -1;
+    &:before {
+        margin-top: 14px;
+    }
+    &:hover {
+        padding-left: 70px !important;
+        &:before {
+            transform: translateX(-150%);
+        }
+        &::after {
+            transform: translateX(300%);
+        }
+    }
+}
+.cky-btn-reject {
+    // @include buttondefault;
+    // @include border_radius;
+    border-color: $black !important;
+    background-color: $black !important;
+    color: $white !important;
+    &:before {
+        margin-top: 14px;
+    }
+    &:hover {
+        padding-left: 70px !important;
+        &:before {
+            transform: translateX(-150%);
+        }
+        &::after {
+            transform: translateX(300%);
+        }
+    }
+}
+.cky-btn-customize {
+    // @include buttondefault;
+    order: 1 !important;
+    border: none !important;
+    color: $black !important;
+    text-decoration: underline !important;
+    &:hover {
+        background-color: unset !important;
+        text-decoration: none !important;
+    }
+}
+.cky-btn-preferences {
+    color: $black !important;
+    border-color: $black !important;
+}
+
+@include respond-to('sm') {
+    .cky-modal {
+        border-radius: 0px !important;
+    }
+    .cky-prefrence-btn-wrapper .cky-btn-reject {
+        order: 2 !important;
+    }
+}
+

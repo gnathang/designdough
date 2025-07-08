@@ -1,0 +1,13 @@
+/* line 1, ../../../../../Users/adam/Dev/designdough/assets/sass/includes/loading_screen.scss */
+.loader_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 6, ../../../../../Users/adam/Dev/designdough/assets/sass/includes/loading_screen.scss */
+.loader_wrapper .logo_wrap img {
+  max-width: 500px;
+}
+
+/*# sourceMappingURL=loading_screen.css.map */

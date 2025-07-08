@@ -1,0 +1,84 @@
+.section_contact_card {
+    @include sections_padding_small;
+    &.add_header {
+        @include sections_padding_large;
+        .title_bar {
+            @include title_bar;
+        }
+        .title_box {
+            @include title_box;
+            padding-bottom: 50px;
+        }
+    }
+    .contact_card_grid {
+        display: grid;
+        a {
+            @include h-four;
+            text-transform: none;
+            margin-top: 0px;
+            &:before {
+                width: 34px;
+                top: 19px;
+            }
+            img {
+                width: 34px;
+                top: 0px;
+            }
+            // overwrite default buttonsecond styles
+            &:hover span {
+                transform: translateX(48px);
+            }
+        }
+        .address_tel_email_wrap {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0 30px 0;
+        }
+        @include respond-to('sm') {
+            .links_wrap {
+                display: grid;
+                padding-bottom: 20px;
+                border-bottom: solid 1px $grey;
+                span {
+                    max-height: unset;
+                }
+            }
+            .contact_details_wrap {
+                display: grid;
+                padding-top: 20px;
+                span {
+                    max-height: unset;
+                }
+            }
+        }
+        @include respond-to('md') {
+            .links_wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 60px;
+            }
+        }
+        @include respond-to('lg') {
+            grid-template-columns: 0.5fr 0.5fr 1fr;
+            align-items: start;
+            .links_wrap {
+                gap: 0px;
+                display: grid;
+            }
+            .address_tel_email_wrap {
+                grid-row: 2;
+                gap: 5px;
+            }
+            .image_wrap {
+                grid-column: 3;
+                grid-row: 1 / span 2;
+            }
+            .socials_wrap {
+                display: grid;
+            }
+        }
+        
+            
+        
+    }
+}

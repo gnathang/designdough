@@ -1,0 +1,45 @@
+
+.section_big_text {
+    @include sections_padding;
+    // this is to create a fixed effect, 
+    // whilst keeping the fixed header and foopter on the same page.
+    // will need some media queries to make it fool-proof on bigger viewports.
+    position: sticky;
+    // top: 25vh;
+    top: 12vh;
+    margin-top: -600px;
+    z-index: -1;
+    height: 50vh;
+    height: 80vh;
+    @include respond-to('lg') {
+        top: 15vh;
+        margin-top: -540px;
+        z-index: 0;
+    }
+    @include border_radius_bottom;
+    &.blur {
+        filter: blur(30px);
+        @include transition;
+    }
+    .title_cont {
+        .title_wrap {
+            @include h-one;
+            @include respond-to('lg') {
+                max-width: 70%;
+                h2 {
+                    background-color: none;
+                    .word {
+                        background-color: none;
+                    }
+                }
+            }
+        }
+        // override styles for home page
+        &.homepage_title_wrap {
+            @media (min-width: 1180px) {
+                grid-template-columns: 1.5fr 1fr 0.1fr;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,201 @@
+.section_sticky_cards {
+    .stag_trig {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 110px;
+        padding-bottom: 20px;
+        margin-bottom: -20px;
+        padding-top: 10px;
+        @include border_radius;
+        @include transition;
+        @include respond-to(sm){
+            position: relative;
+        }
+        @include arm_dark_mode(null, $black, $black);
+        .container{
+            margin-bottom: 100px;
+        }
+        &.stag_trig_1{
+            top: 110px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        &.stag_trig_2{
+            top: 150px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        &.stag_trig_3{
+            top: 190px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        &.stag_trig_4{
+            top: 230px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        &.stag_trig_5{
+            top: 270px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        &.stag_trig_6{
+            top: 310px;
+            @include respond-to(sm){
+                top: 100px;
+            }
+        }
+        .title_wrap{
+            align-items: center;
+            margin: 30px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid $black;
+            @include respond-to(sm){
+                align-items: flex-start;
+            }
+            .staggered_cards_title{
+                text-transform: uppercase;
+                border-bottom: 0;
+                margin-bottom: 0;
+            }
+            p{
+                min-width: 100px;
+                @include respond-to(sm){
+                    display: none;
+                }
+            }
+            h3{
+                width: 80%;
+            }
+            // this is the styling for the featured post on the 'Latest' page.  
+            .title {
+                text-transform: uppercase;
+                border-bottom: none;
+            }
+        }
+        .slider{
+            .slick-next,
+            .slick-prev {
+                display: none !important;
+            }
+            .slick-dots {
+                display: none !important;
+                bottom: 0px;
+            }
+            @include slick_dots;
+            @include slick_arrows;
+            &.show_dots {
+                .slick-dots {
+                    display: block !important;
+                }
+            }
+            &.show_arrows {
+                .slick-next,
+                .slick-prev {
+                    display: block !important;
+                }
+            }
+        }
+        .pre_text{
+            width: 70%;
+            margin-left: 100px;
+        }
+        .slide_wrap{
+            .flex_wrap{
+                .content{
+                    width: calc(85% - 100px);
+                    @include respond-to(sm){
+                        width: calc(100% - 10px);
+                    }
+                }
+                .arrow{
+                    width: 100px;
+                    @include respond-to(sm){
+                        width: 20px;
+                    }
+                    svg{
+                        @include transition;
+                    }
+                }
+                .textarea{
+                    margin-top: 0px;
+                    width: 100%;
+                    @include transition;
+                    @include respond-to(sm){
+                        width: 100%;
+                    }
+                    ol{
+                        li{
+                            margin-bottom: 10px;
+                            &::marker{
+                                font-size: 18px;
+                                line-height: 27px;
+                                color: $white;
+                            }
+                        }
+                    }
+        
+                }
+            }
+            padding-bottom: 0px;
+        }
+        .text_wrap{
+            width: 70%;
+            margin-left: 100px;
+            margin-bottom: 0px;
+        }
+        .slick-slider{
+            cursor: grab;
+        }
+        &.white{
+            background-color: $white;
+            .flex_start{
+                border-bottom: 1px solid $black;
+                ol{
+                    li{
+                        margin-bottom: 10px;
+                        &::marker{
+                            font-size: 18px;
+                            line-height: 27px;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+            .slider{
+                button.slick-next {
+                    &:before {
+                        content: url('/wp-content/themes/designdough/assets/images/svg/arrow-next-black.svg');
+                    }
+                }
+                button.slick-prev {
+                    &:before {
+                        content: url('/wp-content/themes/designdough/assets/images/svg/arrow-prev-black.svg');
+                    }
+                }        
+            }
+        }
+        &.off_white {
+            background-color: $offwhite;
+            .flex_start{
+                border-bottom: 1px solid $black;
+                ol{
+                    li{
+                        margin-bottom: 10px;
+                        &::marker{
+                            font-size: 18px;
+                            line-height: 27px;
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+   }
+}

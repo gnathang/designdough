@@ -1,0 +1,470 @@
+
+
+/* Table of Contents
+==================================================
+	#Clearing
+	#Media Queries
+*/
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    // todo: do I need to un-comment this? I think not
+    
+    // .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
+
+
+.last {margin-right:0 !important;padding-right:0 !important;}
+
+img{
+	width:100%;
+	height:auto;
+	height: 100%;
+	object-fit: contain;
+
+	}
+
+iframe{
+	max-width:100%;
+	min-height: auto;
+}
+
+
+/* #Media Queries
+================================================== */
+
+/* Responsive Layouts */
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media #{inspect(map-get($breakpoints, $breakpoint))} {
+        @content;
+      }
+    }
+  
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+  }
+  
+  $breakpoints: (
+    'sm':  ( max-width:  767px ),
+    'md': ( min-width:  768px ),
+  'ipad': (min-width: 960px),
+    'lg':  ( min-width: 1200px ),
+    'xl':  ( min-width: 1600px )
+  ) !default;
+  
+  /* Type sizes */
+  
+  /* Responsive grid */
+  
+  /* Variables */
+
+      @mixin respond-to ($breakpoint) {
+  
+          // $breakpoint is simply a variable that can have several values
+  
+          @if $breakpoint==tablet {
+  
+  
+  @media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (-webkit-min-device-pixel-ratio: 1),
+      only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: portrait) 
+    and (-webkit-min-device-pixel-ratio: 1),
+      only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: landscape) 
+    and (-webkit-min-device-pixel-ratio: 1),
+      only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: portrait) 
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: landscape) 
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 834px) 
+    and (max-device-width: 1112px)
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 834px) 
+    and (max-device-width: 834px) 
+    and (orientation: portrait) 
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 1112px) 
+    and (max-device-width: 1112px) 
+    and (orientation: landscape) 
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 1024px) 
+    and (max-device-width: 1366px)
+    and (-webkit-min-device-pixel-ratio: 2),
+      only screen 
+    and (min-device-width: 1024px) 
+    and (max-device-width: 1024px) 
+    and (orientation: portrait) 
+    and (-webkit-min-device-pixel-ratio: 2)
+  {
+              @content;
+          }
+        }
+  
+        @if $breakpoint==mobile {
+  @media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2),
+    only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+    only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape),
+    only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2),
+    only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+    only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape),
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 667px) 
+    and (-webkit-min-device-pixel-ratio: 2),
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 667px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait), 
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 667px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape), 
+    only screen 
+    and (min-device-width: 414px) 
+    and (max-device-width: 736px) 
+    and (-webkit-min-device-pixel-ratio: 3),
+    only screen 
+    and (min-device-width: 414px) 
+    and (max-device-width: 736px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+    only screen 
+    and (min-device-width: 414px) 
+    and (max-device-width: 736px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: landscape),
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3),
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+    only screen 
+    and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: landscape),
+    only screen 
+    and (min-device-width: 390px) 
+    and (max-device-width: 844px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+    only screen 
+    and (min-device-width: 390px) 
+    and (max-device-width: 844px) 
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: landscape){ 
+          @content;
+          }
+        }
+          
+  
+        @if $breakpoint==sm {
+  @media only screen 
+      and (max-width: 768px) {
+          @content;
+          }
+        }
+      
+    @if $breakpoint==md {
+  @media only screen 
+      and (min-width: 768px) {
+          @content;
+          }
+        }
+  
+    @if $breakpoint==lg {
+  @media only screen 
+      and (min-width: 1200px) {
+          @content;
+          }
+        }
+  
+    @if $breakpoint==xl {
+  @media only screen 
+      and (min-width: 1600px) {
+          @content;
+          }
+        }
+          
+    @if $breakpoint==xxl {
+  @media only screen 
+      and (min-width: 1800px) {
+          @content;
+          }
+        }
+          
+      }
+  
+  
+
+/* Mixins */
+// todo: remove .one_half etc - toolket styles - not needed anymore!
+
+// @include respond-to(tablet){
+//         .container { max-width:1024px; min-width: 220px; padding:0 70px; width:calc(100% - 140px); }
+
+//         .container_no_pad { max-width:1024px; min-width: 280px; padding:0px; width:100%; }
+// 	.columns, .column { margin: 0 auto; }
+
+// 		.one_half,
+//     	.one_third,
+//  		.two_thirds,
+// 		.one_fourth,
+//  		.three_fourths,
+//     	.one_half,
+//     	.one_fifth,
+//     	.two_fifths,
+//     	.three_fifths,
+//     	.four_fifths,
+// 		.one_sixth,
+// 		.two_sixths,
+// 		.three_sixths,
+// 		.four_sixths,
+// 		.five_sixths
+// 		{ width: 100%; }
+
+
+//     #content						{ width:100%; float:none; }
+//     #sidebar						{ width:100%; float:none;}
+
+// .left{
+// 	float:none;
+// 	}
+
+// .right{
+// 	float:none;
+// 	}
+
+// .one_half_nopad,
+// .one_third_nopad,
+// .two_thirds_nopad,
+// .three_fourths_nopad,
+// .one_fourth_nopad,
+// .one_fifth_nopad,
+// .two_fifths_nopad,
+// .three_fifths_nopad,
+// .four_fifths_nopad,
+// .one_sixth_nopad,
+// .five_sixths_nopad
+// 	{
+// 	width:calc(100% - 60px);
+// 	padding: 30px;
+// }
+
+// }
+
+
+// @include respond-to(mobile){
+//         .container { max-width:1024px; min-width: 220px; padding:0 30px; width:calc(100% - 60px); }
+
+
+//     .container_nopad {
+// 		max-width: 1024px;
+// 		min-width:280px;
+// 		margin: 0 auto;
+// 	}
+
+
+//         .container_no_pad { max-width:1024px; min-width: 280px; padding:0px; width:100%; }
+// 	.columns, .column { margin: 0 auto; }
+
+// 		.one_half,
+//     	.one_third,
+//  		.two_thirds,
+// 		.one_fourth,
+//  		.three_fourths,
+//     	.one_half,
+//     	.one_fifth,
+//     	.two_fifths,
+//     	.three_fifths,
+//     	.four_fifths,
+// 		.one_sixth,
+// 		.two_sixths,
+// 		.three_sixths,
+// 		.four_sixths,
+// 		.five_sixths
+// 		{ width: 100%; }
+
+
+//     #content						{ width:100%; float:none; }
+//     #sidebar						{ width:100%; float:none;}
+
+// .left{
+// 	float:none;
+// 	}
+
+// .right{
+// 	float:none;
+// 	}
+
+// .one_half_nopad,
+// .one_third_nopad,
+// .two_thirds_nopad,
+// .three_fourths_nopad,
+// .one_fourth_nopad,
+// .one_fifth_nopad,
+// .two_fifths_nopad,
+// .three_fifths_nopad,
+// .four_fifths_nopad,
+// .one_sixth_nopad,
+// .five_sixths_nopad
+// 	{
+// 	width:calc(100% - 60px);
+// 	padding: 30px;
+// }
+
+// 	}
+
+
+// @include respond-to(sm){
+//         .container { max-width:1024px; min-width: 220px; padding:0 30px; width:calc(100% - 60px); }
+
+
+//     .container_nopad {
+// 		max-width: 1024px;
+// 		min-width:280px;
+// 		margin: 0 auto;
+// 	}
+
+
+//         .container_no_pad { max-width:1024px; min-width: 280px; padding:0px; width:100%; }
+// 	.columns, .column { margin: 0 auto; }
+
+// 		.one_half,
+//     	.one_third,
+//  		.two_thirds,
+// 		.one_fourth,
+//  		.three_fourths,
+//     	.one_half,
+//     	.one_fifth,
+//     	.two_fifths,
+//     	.three_fifths,
+//     	.four_fifths,
+// 		.one_sixth,
+// 		.two_sixths,
+// 		.three_sixths,
+// 		.four_sixths,
+// 		.five_sixths
+// 		{ width: 100%; }
+
+
+//     #content						{ width:100%; float:none; }
+//     #sidebar						{ width:100%; float:none;}
+
+// .left{
+// 	float:none;
+// 	}
+
+// .right{
+// 	float:none;
+// 	}
+
+// .one_half_nopad,
+// .one_third_nopad,
+// .two_thirds_nopad,
+// .three_fourths_nopad,
+// .one_fourth_nopad,
+// .one_fifth_nopad,
+// .two_fifths_nopad,
+// .three_fifths_nopad,
+// .four_fifths_nopad,
+// .one_sixth_nopad,
+// .five_sixths_nopad
+// 	{
+// 	width:calc(100% - 60px);
+// 	padding: 30px;
+// }
+
+// 	}

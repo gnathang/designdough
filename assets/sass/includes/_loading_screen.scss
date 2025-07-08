@@ -1,0 +1,40 @@
+.loader_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $offblack;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    z-index: 9;
+    @include longtransition;
+    .logo_wrap {
+        img {
+            opacity: 0;
+            width: 300px;
+            height: auto;
+            @include longtransition;
+        }
+    }
+    &.loading {
+        .logo_wrap img {
+            opacity: 1;
+            @include longtransition;
+
+        }
+    }
+    &.loaded {
+        opacity: 0;
+        @include longtransition;
+
+    }
+}
+
+/* fade in content for the homepage */
+// header, main {
+//     opacity: 0;
+//     @include longtransition;
+// }

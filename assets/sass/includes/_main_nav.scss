@@ -1,0 +1,43 @@
+
+.main_nav {
+    display: none;
+    @include respond-to('lg') {
+        display: block;
+    }
+    ul {
+        display: flex;
+        gap: 20px;
+        // todo: remove these globally
+        margin-bottom: 0;
+        margin-left: 0;
+        .li_level_one {
+            list-style-type: none;
+            margin-bottom: 0;
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+            // height: 100%;
+            position: relative;
+            &.dropdown {
+                &:after {
+                    content: '+';
+                    margin-left: 5px;
+                    // cursor: pointer;
+                    @include transition;
+                }
+            }
+            &:hover{
+                @include transition;
+                .dropdown_area{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            // select which style dropdown
+            
+            // @include dropdown_full_width;
+            @include dropdown_rel_top_level;
+
+        }
+    }
+}

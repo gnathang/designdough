@@ -1,0 +1,199 @@
+.section_text_image {
+    @include sections_padding_large;
+    .container {
+        .title_wrap {
+            display: flex;
+            text-align: center;
+            gap: 30px;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            position: sticky;
+            top: 25vh;
+            z-index: 1;
+            h3 {
+                padding-bottom: 20px;
+            }
+        }
+        @include respond-to('md') {
+            .title_wrap {
+                width: 55%;
+                margin: 0 auto;
+            }
+            .big_title {
+                font-size: 90px;
+            }
+        }
+        @include respond-to('lg') {
+            .big_title {
+                font-size: 120px;
+                // keep the font smaller if smaller_title is selected
+                &.smaller_title {
+                    font-size: 90px;
+                }
+            }
+            .intro_text {
+                width: 80%;
+            }
+        }
+        @include respond-to('xl') {
+            .big_title {
+                font-size: 180px;
+                // keep the font smaller if smaller_title is selected
+                &.smaller_title {
+                    font-size: 90px;
+                }
+            }
+        }
+
+        .text_image_columns {
+            &.column_count-1 {
+                display: block;
+                @include respond-to('lg') {
+                    width: 50%;
+                }
+            }
+            &.column_count-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+            &.column_count-3 {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        .text_image_editorial {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(14, 100px);
+            gap: 20px;
+            padding-bottom: 60px;
+            position: relative;
+            @include respond-to('md') {
+                grid-template-columns: repeat(12, 1fr);
+                grid-template-rows: repeat(24, 100px);
+                gap: 20px;
+            }
+        
+            .item_wrap {
+                height: fit-content;
+                width: fit-content;
+                position: relative;
+                z-index: 9;
+                .ani_background_reveal {
+                    @include border_radius_small;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $magenta;
+                    width: 100%;
+                    height: 100%;
+                }
+                .image_wrap {
+                    img {
+                        @include border_radius_small;
+                    }
+                } 
+                .text_wrap {
+                    h2 {
+                        font-size: 60px;
+                        @include respond-to('lg') {
+                            font-size: 200px;
+                            line-height: 1;
+                            text-align: center;
+                        }
+                    }
+                }
+                // example grid cell layout
+                &.row-1 {
+                    grid-column: 1 / span 7;
+                    grid-row: 3;
+                    img {
+                        // max-height: 300px;
+                        border-radius: 10px;
+                    }
+                    @include respond-to('lg') {
+                        grid-column: 1 / span 5;
+                        img {
+                            border-radius: 10px;
+                        }
+                    }
+                }
+                &.row-2 {
+                    grid-column: 10 / span 3;
+                    grid-row: 4;
+                    img {
+                        max-height: 350px;
+                        border-radius: 10px;
+                    }
+                    @include respond-to('lg') {
+                        grid-column: 9 / span 3;
+                        grid-row: 7;
+                        img {
+                            max-height: 480px;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+
+                &.row-3 {
+                    grid-column: 1 / span 8;
+                    grid-row: 7;
+                    @include respond-to('md') {
+                        grid-column: 2 / span 3;
+                    }
+                    @include respond-to('lg') {
+                        grid-column: 2 / span 3;
+                        grid-row: 11;
+                    }
+                }
+                &.row-4 {
+                    grid-column: 9 / span 4;
+                    grid-row: 8;
+                    @include respond-to('md') {
+                        grid-row: 10;
+                    }
+                    @include respond-to('lg') {
+                        grid-column: 10 / span 3;
+                        grid-row: 16;
+                    }
+                    img {
+                        max-height: 400px;
+                    }
+                }
+                &.row-5 {
+                    grid-column: 2 / span 9;
+                    grid-row: 10;
+                    @include respond-to('md') {
+                        grid-column: 1 / span 4;
+                        grid-row: 17;
+                    }
+                }
+                &.row-6 {
+                    grid-column: 6 / span 5;
+                    grid-row: 12;
+                    @include respond-to('md') {
+                        grid-column: 6 / span 5;
+                        grid-row: 21;
+                    }
+                }
+                // &.row-7 {
+                //     grid-column: 4 /span 4;
+                //     grid-row: 12 / span 3;
+                //     display: inline-grid;
+                //     @include respond-to('lg') {
+                //         grid-column: 6 / span 2;
+                //         grid-row: 29 / span 2;
+                //         display: unset;
+                //     }
+                // }
+                // &.row-8 {
+                //     grid-column: 6 / 9;
+                //     grid-row: 3 / span 5;
+                // }
+            }
+        }
+    }
+}

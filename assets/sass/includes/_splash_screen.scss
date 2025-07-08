@@ -1,0 +1,50 @@
+.loader_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $offblack;
+    display: inline-flex;
+    display: -webkit-inline-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    opacity: 1;
+    z-index: 9;
+    @include longtransition;
+    .logo_wrap {
+        display: flex;
+        display: -webkit-flex;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        justify-content: center;
+        -webkit-justify-content: center;
+        align-items: center;
+        height: 60px;
+
+        img {
+            opacity: 0;
+            width: auto;
+            height: 40px;
+            @include respond-to('lg') {
+                height: 60px;
+            }
+            @include transition;
+        }
+    }
+    &.loaded {
+        opacity: 0;
+        @include transition;
+
+    }
+    &.index {
+        z-index: 0;
+    }
+}
+
+/* fade in content for the homepage */
+// header, main {
+//     opacity: 0;
+//     @include longtransition;
+// }

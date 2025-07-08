@@ -1,0 +1,124 @@
+.section_before_after_slider {
+    // inset style
+    .inset {
+        @include respond-to('md') {
+            padding: 100px;
+        }
+        @include respond-to('lg') {
+            padding: 200px;
+        }
+    }
+    #comparison {
+        width: 100%;
+        aspect-ratio: 1.9 / 1;   
+        overflow: hidden; 
+        position: relative;
+        figure { 
+            position: absolute;
+            background-size: cover;
+            background-position: center !important;
+            font-size: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            #divisor { 
+                background-size: cover;
+                background-position: left !important;
+                position: absolute;
+                width: 50%; 
+                box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+                bottom: 0; height: 100%;
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -2px;
+                    width: 4px;
+                    height: calc(50% - 25px);
+                    background: $magenta;
+                    z-index: 3;
+                }
+                &::before {
+                    top: 0;
+                    box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
+                }
+                &::after {
+                    bottom: 0;
+                    box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
+                }
+            }
+            #handle {
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                z-index: 1;
+                
+                &::before,
+                &::after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border: 6px inset transparent;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -6px;
+                }
+                &::before {
+                    border-right: 6px solid $magenta;
+                    left: 50%;
+                    margin-left: -17px;
+                }
+                &::after {
+                    border-left: 6px solid $magenta;
+                    right: 50%;
+                    margin-right: -17px;
+                }
+            }
+        }
+    }
+    .before_after {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    input[type=range]{
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        position: absolute;
+        top: 50%; left: -25px;
+        transform: translateY(-50%);
+        background-color: transparent;
+        width: calc(100% + 50px); 
+        z-index: 2;
+        cursor: none;
+        &:focus,
+        &:active {
+            border: none;
+            outline: none;
+        }
+    }
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background: transparent;
+        border: 4px solid $magenta;
+        box-shadow: 0 0 8px 1px rgba(0,0,0,.3);
+    }
+    input[type=range]::-moz-range-track {
+        -moz-appearance:none;
+        height:15px;
+        width: 100%;
+        background-color: transparent; 
+        position: relative;
+        outline: none;    
+    }
+
+}

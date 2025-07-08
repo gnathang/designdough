@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="105.701" height="68.895" viewBox="0 0 105.701 68.895">
+  <defs>
+    <filter id="Rectangle_3129" x="-39.287" y="-631" width="205" height="97" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_24784" x="0" y="0" width="105.701" height="68.895" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_10824" data-name="Group 10824" transform="translate(-444.787 -2385.5)">
+    <g id="Component_15_99" data-name="Component 15 – 99" transform="translate(470.287 2411)">
+      <g id="Group_10822" data-name="Group 10822" transform="translate(-15.287)">
+        <g transform="matrix(1, 0, 0, 1, -10.21, -25.5)" filter="url(#Path_24784)">
+          <path id="Path_24784-2" data-name="Path 24784" d="M39.277,0H77.424C82,0,85.7,4.006,85.7,8.947S82,17.895,77.424,17.895H39.277C34.706,17.895,31,13.889,31,8.947S34.706,0,39.277,0Z" transform="translate(-5.5 25.5)" fill="#e72d51"/>
+        </g>
+      </g>
+    </g>
+    <text id="View" transform="translate(477 2415)" fill="#fafafa" font-size="7" font-family="FTSterling-Medium, FT Sterling" font-weight="500" letter-spacing="-0.027em"><tspan x="-7.451" y="7">View</tspan></text>
+  </g>
+</svg>

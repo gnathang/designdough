@@ -1,0 +1,46 @@
+
+.archive_pagination {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    @include sections_padding;
+    .page-numbers {
+        @include h-three;
+        &.current {
+            color: $magenta;
+        }
+        &:hover {
+            filter: opacity(0.5);
+            &.current {
+                filter: none;
+            }
+        }
+    }
+    .page-numbers.dots {
+        color: $black;
+    }
+    .prev, .next {
+        position: relative;
+        top: -5px;
+        width: 50px;
+    }
+    .prev {
+        margin-right: 10px;
+    }
+    .next {
+        margin-left: 10px;
+    }
+    .first {
+
+    }
+    .previous {
+
+    }
+    .next {
+
+    }
+    .last {
+
+    }
+}

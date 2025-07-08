@@ -1,0 +1,110 @@
+
+.hero {
+    padding-top: 70px;
+    @include respond-to('lg') {
+        padding-top: 0;
+    }
+    
+    // video styles 
+    .video {
+        width: 100%;
+        height: auto;
+        position: relative;
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .title_wrap {
+            @include respond-to('lg') {
+                position: absolute;
+                bottom: 200px;
+                width: 80%;
+            }
+        }
+    }
+
+    // slides
+    // todo: make into mixins!
+    .slider {
+        .slick-next,
+        .slick-prev {
+            display: none;
+        }
+        @include slick_dots;
+        @include slick_arrows;
+        &.show_dots {
+            .slick-dots {
+                display: block;
+            }
+        }
+        &.show_arrows {
+            .slick-next,
+            .slick-prev {
+                display: block;
+            }
+        }
+
+        // todo: make into mixins! (just as above?)
+        .slick-slide {
+            .slide {
+                position: relative;
+                height: 100vh;
+                .slide_image_wrap {
+                    height: 100vh;
+                    background-size: cover;
+                    object-fit: cover;
+                }
+                .slide_text_wrap {
+                    position: absolute;
+                    bottom: 200px;
+                    left: 0;
+                    width: 100%;
+                    .title_wrap {
+                        // position: absolute;
+                        // bottom: 280px;
+                        // left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // static iamge
+    .hero_image {
+        height: 100vh;
+        // background-size: cover;
+        position: relative;
+        display: flex;
+        .content_wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: end;
+            padding-bottom: 100px;
+            .title_wrap {
+                grid-column: 1 / span 3;
+            }
+        }
+    }
+
+    // editorial
+    // todo: grid mixins?!?
+    .hero_editorial {
+        @include sections_padding;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        .title_wrap {
+            padding-top: 100px;
+            grid-column: 1 / span 3;
+        }
+        .text_body {
+            grid-column: 3 / -1;
+        }
+        .image_wrap {
+            grid-column: 1 / span 2;
+        }
+    }
+}
